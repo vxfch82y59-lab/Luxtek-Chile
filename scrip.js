@@ -1,3 +1,3 @@
 document.getElementById("btn").addEventListener("click", function() {
-        document.getElementById("result").innerText = "Butona tıklandı!";
-        });
+            document.getElementById("result").innerText = "Buton çalıştı!";
+            });
