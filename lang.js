@@ -1,23 +1,25 @@
-const translations = {
-            tr: {
-                    title: "TWS M10 Kablosuz Kulaklık",
-                            description: "Yüksek bass, uzun pil ömrü ve su geçirmez tasarım."
-                                },
-                                    es: {
-                                            title: "Auriculares Inalámbricos TWS M10",
-                                                    description: "Graves potentes, larga duración de batería y diseño resistente al agua."
-                                                        }
-                                                        };
+// Sayfadaki metni değiştir
+function setLanguage(lang) {
+    // Tüm çeviri içeren elemanları al
+        const elements = document.querySelectorAll("[data-tr]");
 
-                                                        function setLanguage(lang) {
-                                                            localStorage.setItem("language", lang);
+            elements.forEach(el => {
+                    const tr = el.getAttribute("data-tr");
+                            const es = el.getAttribute("data-es");
 
-                                                                document.querySelectorAll("[data-lang]").forEach(el => {
-                                                                        const key = el.getAttribute("data-lang");
-                                                                                el.textContent = translations[lang][key];
-                                                                                    });
-                                                                                    }
+                                    if (lang === "tr") {
+                                                el.innerText = tr;
+                                                        } else if (lang === "es") {
+                                                                    el.innerText = es;
+                                                                            }
+                                                                                });
 
-                                                                                    const savedLang = localStorage.getItem("language") || "tr";
-                                                                                    setLanguage(savedLang);
-}
+                                                                                    // Seçilen dili tarayıcıya kaydet
+                                                                                        localStorage.setItem("lang", lang);
+                                                                                        }
+
+                                                                                        // Sayfa açılınca kaydedilen dili yükle
+                                                                                        document.addEventListener("DOMContentLoaded", () => {
+                                                                                            const savedLang = localStorage.getItem("lang") || "tr";
+                                                                                                setLanguage(savedLang);
+                                                                                                });

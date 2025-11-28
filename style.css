@@ -1,73 +1,69 @@
-* {
+body {
         margin: 0;
-            padding: 0;
-                box-sizing: border-box;
-                    font-family: Arial;
+            font-family: Arial, sans-serif;
+                background: #0e0e0e;
+                    color: white;
                     }
 
-                    body {
-                        background: #0f0f0f;
-                            color: white;
-                                text-align: center;
-                                    padding: 20px;
-                                    }
-
-                                    header h1 {
-                                        font-size: 2.5rem;
-                                            margin-bottom: 10px;
-                                            }
-
-                                            header p {
-                                                color: #ccc;
-                                                    margin-bottom: 20px;
+                    /* DİL SEÇİCİ */
+                    .lang-switch {
+                        text-align: center;
+                            padding: 10px;
+                            }
+                            .lang-switch button {
+                                padding: 8px 16px;
+                                    margin: 5px;
+                                        font-size: 16px;
+                                            border-radius: 6px;
+                                                border: none;
+                                                    cursor: pointer;
                                                     }
 
-                                                    .product img {
-                                                        width: 250px;
-                                                            margin: 20px auto;
-                                                                display: block;
-                                                                }
+                                                    .hero {
+                                                        text-align: center;
+                                                            padding: 60px 20px;
+                                                                background: linear-gradient(135deg, #1a1a1a, #000);
+                                                                    animation: fade 1.2s;
+                                                                    }
 
-                                                                .features {
-                                                                    list-style: none;
-                                                                        font-size: 1.2rem;
-                                                                            line-height: 2rem;
+                                                                    .hero h1 {
+                                                                        font-size: 32px;
+                                                                            font-weight: bold;
                                                                             }
 
-                                                                            .whatsapp {
-                                                                                position: fixed;
-                                                                                    bottom: 20px;
-                                                                                        right: 20px;
-                                                                                            background: #25D366;
-                                                                                                padding: 14px 18px;
-                                                                                                    border-radius: 50px;
-                                                                                                        color: white;
-                                                                                                            text-decoration: none;
-                                                                                                                font-weight: bold;
-                                                                                                                    box-shadow: 0 0 10px #25D366;
-                                                                                                                    }
+                                                                            .product {
+                                                                                padding: 40px 20px;
+                                                                                    text-align: center;
+                                                                                    }
 
-                                                                                                                    .lang-switcher {
-                                                                                                                        position: fixed;
-                                                                                                                            top: 20px;
-                                                                                                                                right: 20px;
-                                                                                                                                }
+                                                                                    .product-img {
+                                                                                        width: 85%;
+                                                                                            max-width: 350px;
+                                                                                                border-radius: 12px;
+                                                                                                    animation: fade 1.5s;
+                                                                                                    }
 
-                                                                                                                                .lang-switcher button {
-                                                                                                                                    margin-left: 5px;
-                                                                                                                                        padding: 8px 12px;
-                                                                                                                                            border: none;
-                                                                                                                                                background: #333;
-                                                                                                                                                    color: white;
-                                                                                                                                                        cursor: pointer;
+                                                                                                    .cta {
+                                                                                                        display: inline-block;
+                                                                                                            margin-top: 20px;
+                                                                                                                padding: 14px 28px;
+                                                                                                                    background: #25D366;
+                                                                                                                        color: white;
+                                                                                                                            border-radius: 8px;
+                                                                                                                                text-decoration: none;
+                                                                                                                                    font-size: 18px;
+                                                                                                                                    }
+
+                                                                                                                                    .price {
+                                                                                                                                        display: block;
+                                                                                                                                            font-size: 28px;
+                                                                                                                                                margin-bottom: 10px;
+                                                                                                                                                    font-weight: bold;
+                                                                                                                                                        color: #25D366;
                                                                                                                                                         }
 
-                                                                                                                                                        .fade-in {
-                                                                                                                                                            opacity: 0;
-                                                                                                                                                                animation: fade 1s forwards;
+                                                                                                                                                        @keyframes fade {
+                                                                                                                                                            from { opacity: 0; transform: translateY(20px); }
+                                                                                                                                                                to   { opacity: 1; transform: translateY(0); }
                                                                                                                                                                 }
-
-                                                                                                                                                                @keyframes fade {
-                                                                                                                                                                    to { opacity: 1; }
-                                                                                                                                                                    }
 }
