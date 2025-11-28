@@ -1,56 +1,100 @@
 body {
         margin: 0;
             font-family: Arial, sans-serif;
-                background: linear-gradient(135deg, #001f3f, #003366, #005bb5);
-                    background-size: 400% 400%;
-                        animation: gradientMove 10s infinite;
-                            color: white;
-                                text-align: center;
-                                }
+                background: #0d0d0d;
+                    color: white;
+                    }
 
-                                @keyframes gradientMove {
-                                    0% { background-position: 0% 50%; }
-                                        50% { background-position: 100% 50%; }
-                                            100% { background-position: 0% 50%; }
+                    header {
+                        display: flex;
+                            justify-content: space-between;
+                                padding: 20px;
+                                    background: #111;
+                                        position: sticky;
+                                            top: 0;
                                             }
 
-                                            .hero {
-                                                margin-top: 120px;
-                                                }
+                                            .logo {
+                                                font-size: 24px;
+                                                    font-weight: bold;
+                                                    }
 
-                                                .title {
-                                                    font-size: 48px;
-                                                        animation: fadeIn 1.5s ease-out;
-                                                        }
+                                                    nav a {
+                                                        margin-left: 15px;
+                                                            color: #fff;
+                                                                text-decoration: none;
+                                                                    transition: 0.3s;
+                                                                    }
 
-                                                        .subtitle {
-                                                            font-size: 22px;
-                                                                opacity: 0.8;
-                                                                }
+                                                                    nav a:hover {
+                                                                        color: #00d4ff;
+                                                                        }
 
-                                                                .btn {
-                                                                    margin-top: 25px;
-                                                                        padding: 12px 25px;
-                                                                            font-size: 18px;
-                                                                                border: none;
-                                                                                    background: white;
-                                                                                        color: black;
-                                                                                            cursor: pointer;
-                                                                                                border-radius: 6px;
-                                                                                                    transition: 0.3s;
-                                                                                                    }
+                                                                        .hero {
+                                                                            text-align: center;
+                                                                                padding: 120px 20px;
+                                                                                    background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+                                                                                    }
 
-                                                                                                    .btn:hover {
-                                                                                                        transform: scale(1.1);
-                                                                                                        }
+                                                                                    .hero h1 {
+                                                                                        font-size: 48px;
+                                                                                        }
 
-                                                                                                        .result {
-                                                                                                            margin-top: 20px;
-                                                                                                                font-size: 22px;
-                                                                                                                }
+                                                                                        .btn {
+                                                                                            background: #00d4ff;
+                                                                                                padding: 15px 25px;
+                                                                                                    text-decoration: none;
+                                                                                                        color: #000;
+                                                                                                            border-radius: 8px;
+                                                                                                                display: inline-block;
+                                                                                                                    margin-top: 20px;
+                                                                                                                        font-weight: bold;
+                                                                                                                            transition: 0.3s;
+                                                                                                                            }
 
-                                                                                                                @keyframes fadeIn {
-                                                                                                                    from { opacity: 0; transform: translateY(20px); }
-                                                                                                                        to { opacity: 1; transform: translateY(0); }
-                                                                                                                        }
+                                                                                                                            .btn:hover {
+                                                                                                                                background: #00a6cc;
+                                                                                                                                }
+
+                                                                                                                                .features, .gallery {
+                                                                                                                                    text-align: center;
+                                                                                                                                        padding: 70px 20px;
+                                                                                                                                        }
+
+                                                                                                                                        .row {
+                                                                                                                                            display: flex;
+                                                                                                                                                flex-wrap: wrap;
+                                                                                                                                                    justify-content: center;
+                                                                                                                                                        gap: 20px;
+                                                                                                                                                        }
+
+                                                                                                                                                        .card {
+                                                                                                                                                            background: #1b1b1b;
+                                                                                                                                                                padding: 20px;
+                                                                                                                                                                    border-radius: 10px;
+                                                                                                                                                                        width: 200px;
+                                                                                                                                                                            transition: 0.3s;
+                                                                                                                                                                            }
+
+                                                                                                                                                                            .card:hover {
+                                                                                                                                                                                transform: scale(1.05);
+                                                                                                                                                                                    background: #00d4ff;
+                                                                                                                                                                                        color: black;
+                                                                                                                                                                                        }
+
+                                                                                                                                                                                        .gallery img {
+                                                                                                                                                                                            width: 250px;
+                                                                                                                                                                                                border-radius: 10px;
+                                                                                                                                                                                                    transition: 0.3s;
+                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                    .gallery img:hover {
+                                                                                                                                                                                                        transform: scale(1.05);
+                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                        footer {
+                                                                                                                                                                                                            background: #111;
+                                                                                                                                                                                                                padding: 30px;
+                                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                                    }
 }
