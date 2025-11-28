@@ -4,70 +4,44 @@
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>LuxTek Chile - M10 TWS</title>
-                <link rel="stylesheet" href="style.css">
-                </head>
-                <body>
 
-                <!-- DİL SEÇİCİ -->
-                <div class="lang-switch">
-                    <button onclick="setLanguage('tr')">🇹🇷 Türkçe</button>
-                        <button onclick="setLanguage('es')">🇪🇸 Español</button>
-                        </div>
+                <!-- STYLES -->
+                    <link rel="stylesheet" href="style.css">
+                        <link rel="stylesheet" href="animations.css">
+                        </head>
 
-                        <section class="hero">
-                            <h1 data-tr="M10 TWS Bluetooth Kulaklık" 
-                                    data-es="Auricular Bluetooth M10 TWS">M10 TWS Bluetooth Kulaklık</h1>
+                        <body>
 
-                                        <p data-tr="Güçlü bass, HD ses, uzun pil ömrü." 
-                                               data-es="Graves potentes, sonido HD, larga duración de batería.">
-                                                      Güçlü bass, HD ses, uzun pil ömrü.
-                                                          </p>
+                            <!-- DİL SEÇİCİ -->
+                                <div class="lang-switch">
+                                        <button onclick="setLanguage('tr')">🇹🇷 Türkçe</button>
+                                                <button onclick="setLanguage('es')">🇪🇸 Español</button>
+                                                    </div>
 
-                                                              <a class="cta" href="https://wa.me/XXXXXXXXX"
-                                                                     data-tr="WhatsApp ile Sipariş Ver"
-                                                                            data-es="Comprar por WhatsApp">WhatsApp ile Sipariş Ver</a>
-                                                                            </section>
+                                                        <!-- ANA BAŞLIK -->
+                                                            <h1 class="fade-in" data-lang="title">LuxTek M10 TWS</h1>
 
-                                                                            <section class="product">
-                                                                                <img src="m10_black.jpg" class="product-img">
+                                                                <!-- ÜRÜN TANIMI -->
+                                                                    <p class="fade-in" data-lang="description">
+                                                                            En yeni nesil M10 TWS kulaklık şimdi Şili’de!
+                                                                                </p>
 
-                                                                                    <h2 data-tr="Özellikler" data-es="Características">Özellikler</h2>
+                                                                                    <!-- ÖZELLİKLER -->
+                                                                                        <ul class="fade-in">
+                                                                                                <li data-lang="feature1">HD Ses Kalitesi</li>
+                                                                                                        <li data-lang="feature2">Çift Mikrofon</li>
+                                                                                                                <li data-lang="feature3">Suya Dayanıklı</li>
+                                                                                                                        <li data-lang="feature4">Uzun Pil Ömrü</li>
+                                                                                                                            </ul>
 
-                                                                                        <ul>
-                                                                                                <li data-tr="Bluetooth 5.1 • Anında bağlantı"
-                                                                                                            data-es="Bluetooth 5.1 • Conexión instantánea"></li>
+                                                                                                                                <!-- FOOTER -->
+                                                                                                                                    <footer class="fade-in" data-lang="footer">
+                                                                                                                                            © 2025 LuxTek Chile - Tüm Hakları Saklıdır
+                                                                                                                                                </footer>
 
-                                                                                                                    <li data-tr="Güçlü Bass • HD Ses Kalitesi"
-                                                                                                                                data-es="Graves fuertes • Calidad de sonido HD"></li>
+                                                                                                                                                    <!-- SCRIPTS -->
+                                                                                                                                                        <script src="lang.js"></script>
+                                                                                                                                                            <script src="animations.js"></script>
 
-                                                                                                                                        <li data-tr="Dokunmatik Kontrol"
-                                                                                                                                                    data-es="Control táctil"></li>
-
-                                                                                                                                                            <li data-tr="500mAh Şarj Kutusu"
-                                                                                                                                                                        data-es="Estuche de carga 500mAh"></li>
-
-                                                                                                                                                                                <li data-tr="Yaklaşık 12 Saat Kullanım"
-                                                                                                                                                                                            data-es="Aproximadamente 12 horas de uso"></li>
-                                                                                                                                                                                                </ul>
-
-                                                                                                                                                                                                    <div class="price-box">
-                                                                                                                                                                                                            <span class="price"
-                                                                                                                                                                                                                          data-tr="15.000 CLP"
-                                                                                                                                                                                                                                        data-es="15.000 CLP">15.000 CLP</span>
-
-                                                                                                                                                                                                                                                <a class="cta" href="https://wa.me/XXXXXXXXX"
-                                                                                                                                                                                                                                                           data-tr="Sipariş Ver"
-                                                                                                                                                                                                                                                                      data-es="Comprar">Sipariş Ver</a>
-                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                          </section>
-
-                                                                                                                                                                                                                                                                          <script>
-                                                                                                                                                                                                                                                                          function setLanguage(lang) {
-                                                                                                                                                                                                                                                                              document.querySelectorAll("[data-tr]").forEach(el => {
-                                                                                                                                                                                                                                                                                      el.textContent = el.getAttribute("data-" + lang);
-                                                                                                                                                                                                                                                                                          });
-                                                                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                                                                          </script>
-
-                                                                                                                                                                                                                                                                                          </body>
-                                                                                                                                                                                                                                                                                          </html>
+                                                                                                                                                            </body>
+                                                                                                                                                            </html>
