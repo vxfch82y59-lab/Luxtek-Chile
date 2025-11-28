@@ -1,37 +1,23 @@
-const langData = {
+const translations = {
             tr: {
-                    title: "M10 TWS Kulaklık",
-                            subtitle: "Yeni nesil kablosuz ses deneyimi",
-                                    f1: "Güçlü bas ve HD ses",
-                                            f2: "LED dijital şarj göstergesi",
-                                                    f3: "Uzun pil ömrü",
-                                                            f4: "Dokunmatik kontrol",
-                                                                    whatsapp: "WhatsApp ile Sipariş Ver"
-                                                                        },
-                                                                            es: {
-                                                                                    title: "Auriculares M10 TWS",
-                                                                                            subtitle: "Nueva experiencia de sonido inalámbrico",
-                                                                                                    f1: "Graves potentes y sonido HD",
-                                                                                                            f2: "Pantalla digital LED",
-                                                                                                                    f3: "Larga duración de batería",
-                                                                                                                            f4: "Control táctil",
-                                                                                                                                    whatsapp: "Comprar por WhatsApp"
-                                                                                                                                        }
-                                                                                                                                        };
+                    title: "TWS M10 Kablosuz Kulaklık",
+                            description: "Yüksek bass, uzun pil ömrü ve su geçirmez tasarım."
+                                },
+                                    es: {
+                                            title: "Auriculares Inalámbricos TWS M10",
+                                                    description: "Graves potentes, larga duración de batería y diseño resistente al agua."
+                                                        }
+                                                        };
 
-                                                                                                                                        function setLang(l) {
-                                                                                                                                            localStorage.setItem("lang", l);
-                                                                                                                                                applyLang();
-                                                                                                                                                }
+                                                        function setLanguage(lang) {
+                                                            localStorage.setItem("language", lang);
 
-                                                                                                                                                function applyLang() {
-                                                                                                                                                    const l = localStorage.getItem("lang") || "tr";
-                                                                                                                                                        document.querySelectorAll("[data-lang]").forEach(el => {
-                                                                                                                                                                const key = el.getAttribute("data-lang");
-                                                                                                                                                                        el.innerText = langData[l][key];
-                                                                                                                                                                            });
-                                                                                                                                                                            }
+                                                                document.querySelectorAll("[data-lang]").forEach(el => {
+                                                                        const key = el.getAttribute("data-lang");
+                                                                                el.textContent = translations[lang][key];
+                                                                                    });
+                                                                                    }
 
-                                                                                                                                                                            // İlk yüklemede uygula
-                                                                                                                                                                            applyLang();
+                                                                                    const savedLang = localStorage.getItem("language") || "tr";
+                                                                                    setLanguage(savedLang);
 }
