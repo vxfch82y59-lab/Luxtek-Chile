@@ -1,52 +1,41 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>LuxTek Chile – Premium Kulaklık</title>
+    <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>LuxTek Chile – M10 Kulaklık</title>
                 <link rel="stylesheet" href="style.css">
                 </head>
                 <body>
 
-                    <header>
-                            <div class="logo">LuxTek Chile</div>
-                                    <nav>
-                                                <a href="#features">Özellikler</a>
-                                                            <a href="#gallery">Galeri</a>
-                                                                        <a href="#contact">İletişim</a>
-                                                                                </nav>
-                                                                                    </header>
+                    <!-- Dil Seçici -->
+                        <div class="lang-switcher">
+                                <button onclick="setLang('tr')">🇹🇷 Türkçe</button>
+                                        <button onclick="setLang('es')">🇪🇸 Español</button>
+                                            </div>
 
-                                                                                        <section class="hero">
-                                                                                                <h1>Premium Kulaklık</h1>
-                                                                                                        <p>Mükemmel ses. Üstün konfor. Şimdi seninle.</p>
-                                                                                                                <a href="https://wa.me/56900000000" class="btn">WhatsApp’tan Sipariş Ver</a>
-                                                                                                                    </section>
+                                                <!-- Ana İçerik -->
+                                                    <header>
+                                                            <h1 data-lang="title">M10 TWS Kulaklık</h1>
+                                                                    <p data-lang="subtitle">Yeni nesil kablosuz ses deneyimi</p>
+                                                                        </header>
 
-                                                                                                                        <section id="features" class="features">
-                                                                                                                                <h2>Öne Çıkan Özellikler</h2>
-                                                                                                                                        <div class="row">
-                                                                                                                                                    <div class="card">🔊 Derin Bass Ses</div>
-                                                                                                                                                                <div class="card">🎧 Gürültü Engelleme</div>
-                                                                                                                                                                            <div class="card">🔋 48 Saat Pil</div>
-                                                                                                                                                                                        <div class="card">⚡ Hızlı Şarj</div>
-                                                                                                                                                                                                </div>
-                                                                                                                                                                                                    </section>
+                                                                            <section class="product">
+                                                                                    <img src="img/m10.png" alt="M10 Kulaklık" class="fade-in">
 
-                                                                                                                                                                                                        <section id="gallery" class="gallery">
-                                                                                                                                                                                                                <h2>Ürün Galerisi</h2>
-                                                                                                                                                                                                                        <div class="row">
-                                                                                                                                                                                                                                    <img src="img1.jpg" alt="Kulaklık">
-                                                                                                                                                                                                                                                <img src="img2.jpg" alt="Kulaklık">
-                                                                                                                                                                                                                                                            <img src="img3.jpg" alt="Kulaklık">
-                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                        </section>
+                                                                                            <ul class="features fade-in">
+                                                                                                        <li data-lang="f1">Güçlü bas ve HD ses</li>
+                                                                                                                    <li data-lang="f2">LED dijital şarj göstergesi</li>
+                                                                                                                                <li data-lang="f3">Uzun pil ömrü</li>
+                                                                                                                                            <li data-lang="f4">Dokunmatik kontrol</li>
+                                                                                                                                                    </ul>
+                                                                                                                                                        </section>
 
-                                                                                                                                                                                                                                                                            <footer id="contact">
-                                                                                                                                                                                                                                                                                    <p>© 2025 LuxTek Chile — Tüm hakları saklıdır.</p>
-                                                                                                                                                                                                                                                                                            <p>İletişim: +56 9 ___ __ __</p>
-                                                                                                                                                                                                                                                                                                </footer>
+                                                                                                                                                            <!-- WhatsApp Butonu -->
+                                                                                                                                                                <a href="https://wa.me/56900000000" class="whatsapp" target="_blank">
+                                                                                                                                                                        <span data-lang="whatsapp">WhatsApp ile Sipariş Ver</span>
+                                                                                                                                                                            </a>
 
-                                                                                                                                                                                                                                                                                                    <script src="script.js"></script>
-                                                                                                                                                                                                                                                                                                    </body>
-                                                                                                                                                                                                                                                                                                    </html>
+                                                                                                                                                                                <script src="lang.js"></script>
+                                                                                                                                                                                </body>
+                                                                                                                                                                                </html>
