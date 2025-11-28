@@ -1,25 +1,29 @@
-// Sayfadaki metni değiştir
-function setLanguage(lang) {
-    // Tüm çeviri içeren elemanları al
-        const elements = document.querySelectorAll("[data-tr]");
+const translations = {
+        tr: {
+                title: "LuxTek M10 TWS",
+                        subtitle: "En yeni nesil M10 TWS kulaklık şimdi Şili’de!",
+                                f1: "HD Ses Kalitesi",
+                                        f2: "Çift Mikrofon",
+                                                f3: "Suya Dayanıklı",
+                                                        f4: "Uzun Pil Ömrü",
+                                                                footer: "© 2025 LuxTek Chile - Tüm Hakları Saklıdır"
+                                                                    },
 
-            elements.forEach(el => {
-                    const tr = el.getAttribute("data-tr");
-                            const es = el.getAttribute("data-es");
+                                                                        es: {
+                                                                                title: "LuxTek M10 TWS",
+                                                                                        subtitle: "Los nuevos auriculares M10 TWS ya están en Chile!",
+                                                                                                f1: "Calidad de sonido HD",
+                                                                                                        f2: "Doble micrófono",
+                                                                                                                f3: "Resistente al agua",
+                                                                                                                        f4: "Larga duración de batería",
+                                                                                                                                footer: "© 2025 LuxTek Chile - Todos los Derechos Reservados"
+                                                                                                                                    }
+                                                                                                                                    };
 
-                                    if (lang === "tr") {
-                                                el.innerText = tr;
-                                                        } else if (lang === "es") {
-                                                                    el.innerText = es;
-                                                                            }
-                                                                                });
-
-                                                                                    // Seçilen dili tarayıcıya kaydet
-                                                                                        localStorage.setItem("lang", lang);
-                                                                                        }
-
-                                                                                        // Sayfa açılınca kaydedilen dili yükle
-                                                                                        document.addEventListener("DOMContentLoaded", () => {
-                                                                                            const savedLang = localStorage.getItem("lang") || "tr";
-                                                                                                setLanguage(savedLang);
-                                                                                                });
+                                                                                                                                    function setLanguage(lang) {
+                                                                                                                                        document.querySelectorAll("[data-lang]").forEach(el => {
+                                                                                                                                                const key = el.getAttribute("data-lang");
+                                                                                                                                                        el.textContent = translations[lang][key];
+                                                                                                                                                            });
+                                                                                                                                                            }
+}
