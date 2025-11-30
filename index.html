@@ -6,7 +6,28 @@
             <title>M10 TWS Chile – Oferta Oficial</title>
 
                 <style>
-                        body { margin:0; font-family:Arial; background:#0d0d0d; color:white; }
+                        .slider {
+                          width: 100%;
+                            height: 280px;
+                              position: relative;
+                                overflow: hidden;
+                                  border-radius: 12px;
+                                  }
+
+                                  .slider img {
+                                    width: 100%;
+                                      height: 100%;
+                                        object-fit: cover;
+                                          position: absolute;
+                                            opacity: 0;
+                                              transition: opacity 1s ease-in-out;
+                                              }
+
+                                              .slider img.active {
+                                                opacity: 1;
+                                                }
+                                                </style>
+                      body { margin:0; font-family:Arial; background:#0d0d0d; color:white; }
 
                                 header {
                                             text-align:center; padding:25px 10px;
@@ -59,7 +80,6 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                         footer { text-align:center; padding:20px; opacity:0.4; margin-top:40px; }
                                                                                                                                                                                                                                                                                                                                                                                                                                             </style>
                                                                                                                                                                                                                                                                                                                                                                                                                                             </head>
-
                                                                                                                                                                                                                                                                                                                                                                                                                                             <body>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                             <header>M10 TWS – Nueva Generación</header>
@@ -67,6 +87,11 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="container">
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                 <!-- FOTO SLIDER -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 <div class="slider">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          <img src="img/slider1.jpg" class="active">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            <img src="img/slider2.jpg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              <img src="img/slider3.jpg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
                                                                                                                                                                                                                                                                                                                                                                                                                                                     <div class="slider">
                                                                                                                                                                                                                                                                                                                                                                                                                                                             <img class="slide active"
                                                                                                                                                                                                                                                                                                                                                                                                                                                                         src="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0030-removebg-preview.png">
@@ -142,6 +167,16 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             slides[index].classList.add("active");
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }, 2500);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slider img");
 
+        function showSlide() {
+          slides.forEach(slide => slide.classList.remove("active"));
+            slides[index].classList.add("active");
+              index = (index + 1) % slides.length;
+              }
+
+              setInterval(showSlide, 3000);
+              </script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </html>
