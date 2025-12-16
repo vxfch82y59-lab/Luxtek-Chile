@@ -53,6 +53,56 @@
             align-items: center;
             width: 100%;
         }
+        
+        /* === NUEVOS ESTILOS DEL CARRITO (AÑADIDOS) === */
+        #cart-icon {
+            position: relative;
+            color: var(--secondary-accent);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 10px;
+            order: 2; /* Derecho después del logo en móvil */
+            margin-left: 10px;
+        }
+        
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent); /* Azul Ciber */
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 2px 6px;
+            min-width: 20px;
+            text-align: center;
+            border: 1px solid var(--dark);
+        }
+
+        /* NOTIFICACIÓN DE CARRITO (AÑADIDOS) */
+        #cart-notification {
+            position: fixed;
+            bottom: 80px; /* Sobre el botón de WhatsApp */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 191, 255, 0.95);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 191, 255, 0.4);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        
+        #cart-notification.show {
+            opacity: 1;
+        }
+        /* ============================================== */
+
 
         /* HAMBURGER MENU BUTTON - SOLA TAŞINDI */
         #hamb {
@@ -239,6 +289,7 @@
         #specs .grid {
             display: grid;
             gap: 40px 25px;
+            /* 3 sütun için minmax değeri 300px'ten 280px'e düşürüldü */
             grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
         }
         #specs .card {
@@ -278,7 +329,7 @@
 
         /* ÜRÜN DETAYLARI */
         #details .grid {
-            /* 2 kart kalacak, otomatik genişleyecek */
+            /* 3 kart kalacak */
             grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); 
         }
         #details .card {
@@ -289,8 +340,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
         
-        /* Sanal Ürün Görseli Kaldırıldı */
-
         /* Detay Listesi Stili */
         #details ul {
             list-style: none;
@@ -332,7 +381,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
-            height: 250px; /* Sabit bir yükseklik vererek fotoların oturmasını sağla */
+            height: 250px; /* Sabit bir yükseklik vererek fotoların oturmasını sağlar */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -364,6 +413,13 @@
             border: 3px solid #fff;
             border-radius: 50%;
             padding: 15px;
+        }
+        
+        /* YENİ: Video Öğesinin Genişletilmesi */
+        @media(min-width: 900px) {
+            .video-item {
+                grid-column: span 2; /* Masaüstünde 2 sütun kapla */
+            }
         }
 
         /* YORUM KARTLARI STİLİ */
@@ -459,7 +515,7 @@
             margin-bottom: 15px;
             font-family: 'Orbitron', sans-serif;
         }
-        #track-order-box input {
+        #track-order-box input, #track-order-box select {
             background: #2a2a47; 
             border: 1px solid #00bfff22;
             color: #fff;
@@ -467,6 +523,16 @@
             border-radius: 6px;
             width: 100%;
             margin-bottom: 15px;
+        }
+         #track-order-box select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 18px;
+            padding-right: 35px;
         }
         #track-order-box button {
             background: var(--accent);
@@ -550,8 +616,28 @@
             #reviews-section .grid {
                 grid-template-columns: 1fr 1fr 1fr; 
             }
+            /* Özellikler (SPECS) bölümü 3 kart ile düzenlenir */
+            #specs .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
             #specs .card {
                  min-height: 280px;
+            }
+            /* Video öğesinin genişletilmesi */
+            .media-item.video-item {
+                grid-column: span 2; /* Masaüstünde 2 sütun kapla */
+            }
+            
+            /* CARRITO: Reajuste en desktop para que se alinee */
+            #cart-icon {
+                 order: 3;
+                 margin-left: auto; /* Empuja el carrito a la derecha */
+            }
+             /* RTL Kargo Takip Düzeltmeleri */
+            [dir="rtl"] #track-order-box select {
+                background-position: left 10px center;
+                padding-left: 35px;
+                padding-right: 12px;
             }
         }
         
@@ -594,6 +680,30 @@
             right: auto;
             left: 20px;
         }
+        [dir="rtl"] #track-order-box select {
+            background-position: left 10px center;
+            padding-left: 35px;
+            padding-right: 12px;
+        }
+        
+        /* ÖDEME GÜVEN ROZETİ EKLENDİ */
+        .payment-trust-badges {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+        .payment-trust-badges i {
+            font-size: 35px;
+            margin: 0 8px;
+            color: #25D366; /* WhatsApp Yeşil */
+            text-shadow: 0 0 5px rgba(37, 211, 102, 0.5);
+            transition: color 0.3s;
+        }
+        .payment-trust-badges i.fa-lock {
+             color: var(--accent);
+             text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        }
     </style>
 </head>
 <body>
@@ -602,6 +712,10 @@
         <button id="hamb" aria-label="Mobil menüyü aç">☰</button>
         <div class="brand">LUXTEK<span>CHILE</span></div>
         
+        <div id="cart-icon" onclick="go('buy-form')" title="Ver Carrito / Completar Pedido">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </div>
         <nav id="deskNav" style="display: none;">
             </nav>
         
@@ -638,19 +752,20 @@
     </aside>
 </div>
 
+<div id="cart-notification" data-lang="cart_added">¡1 artículo añadido al carrito!</div>
 <section id="home" class="hero">
     <div class="container hero-content">
         <h1 data-lang="hero_title">LUXTEK<span>CHILE M10</span></h1>
         <p data-lang="hero_sub">Libertad y Potencia Inalámbricas. Estuche de Carga con Función Powerbank e Indicador LED.</p>
         <div class="hero-buttons">
-            <a data-lang="buy_now" href="#buy-form" class="">Comprar Ahora - $9.990</a> </div>
+            <a data-lang="buy_now" href="javascript:void(0)" onclick="addToCart()" class="">Comprar Ahora - $9.990</a> </div>
     </div>
 </section>
 
 <section id="features-intro" class="section">
     <div class="container">
         <h2 class="title" data-lang="features_title">Comodidad de Bolsillo, Sonido Potente</h2>
-        <p class="lead" data-lang="features_text">Luxtekchile M10 es ideal para el uso diario con su diseño ergonómico, estuche de carga digital y hasta 5 horas de reproducción.</p>
+        <p class="lead" data-lang="features_text">Luxtekchile M10, ergonomik tasarımı, dijital şarj kutusu ve 5 saatlik kullanım süresiyle günlük kullanım için idealdir.</p>
     </div>
 </section>
 
@@ -673,15 +788,8 @@
                 <h4 data-lang="spec2_title">Conexión Confiable</h4>
                 <p data-lang="spec2_desc">Conexión inalámbrica estable, de baja latencia y sin interrupciones gracias a la tecnología avanzada Bluetooth 5.3.</p>
             </div>
-
-            <div class="card" data-delay="0.3"> 
-                
-                <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <h4 data-lang="spec3_title">Estuche Soporte para Teléfono</h4>
-                <p data-lang="spec3_desc">El estuche de carga multiusos también sirve como un práctico soporte para su teléfono.</p>
-            </div>
             
-            <div class="card" data-delay="0.4"> 
+            <div class="card" data-delay="0.3"> 
                 
                 <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
                 <h4 data-lang="spec4_title">Función Powerbank</h4>
@@ -741,7 +849,7 @@
             <div class="media-item" data-delay="0.3"> 
                 <img src="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0034.jpg" alt="Luxtekchile M10 - Contenido de la caja y accesorios">
             </div>
-            <div class="media-item" data-delay="0.4"> 
+            <div class="media-item video-item" data-delay="0.4"> 
                 <video controls poster="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0034.jpg">
                     <source src="https://github.com/vxfch82y59-lab/Luxtek-Chile/raw/refs/heads/main/VID-20251201-WA0000~2.mp4" type="video/mp4">
                     Su navegador no soporta el elemento de video.
@@ -779,8 +887,8 @@
 
 <section id="buy-form" class="section">
     <div class="container">
-        <h2 class="title" data-lang="buy_title">Complete su Pedido y Garantía</h2>
-        <p class="lead" data-lang="buy_reply">Puede ordenar el Luxtekchile M10 inmediatamente completando el formulario a continuación. **Garanti: Solo válida contra defectos de fábrica causados por la fabricación. Errores del usuario, caídas, contacto con líquidos, etc., están fuera del alcance de la garantía.** Nos pondremos en contacto con usted para informarle sobre el pago y la entrega. **Nota: ¡Solo quedan 30 unidades en stock!**</p>
+        <h2 class="title" data-lang="buy_title">Complete su Pedido y Pago</h2>
+        <p class="lead" data-lang="buy_reply">Aşağıdaki formu doldurarak Luxtekchile M10'u hemen sipariş edebilir ve ödemeye geçebilirsiniz. **Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır.** Ödemenizden hemen sonra siparişiniz işleme alınacaktır. **Nota: ¡Solo quedan 30 unidades en stock!**</p>
         
         <div class="card contact-form" style="max-width: 600px; margin: 30px auto; background: #2a2a47; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);"> 
             <form id="quote-form">
@@ -795,21 +903,43 @@
                     <option data-lang="color_1" value="Black">Negro</option>
                 </select>
                 
-                <select name="payment_option" required>
-                    <option value="" disabled selected data-lang="form_payment_select">Seleccionar Método de Pago (Chile)</option>
-                    <option data-lang="payment_1" value="Banka Transferi (Şili Bankaları)">Transferencia Bancaria (Bancos Chilenos)</option>
-                    <option data-lang="payment_2" value="Kredi Kartı (Ödeme Linki ile)">Tarjeta de Crédito (Enlace de Pago)</option>
+                <select name="courier_option" required>
+                    <option value="" disabled selected data-lang="form_courier_select">Seleccionar Transportista</option>
+                    <option data-lang="courier_1" value="Chilexpress">Chilexpress</option>
+                    <option data-lang="courier_2" value="Correos de Chile">Correos de Chile</option>
+                    <option data-lang="courier_3" value="Starken">Starken</option>
                 </select>
 
-                <textarea name="requirements" data-lang="form_message" placeholder="Su Dirección, Región y Notas Adicionales"></textarea>
-                <button type="submit" data-lang="form_send">Completar Pedido</button>
+                <textarea name="requirements" data-lang="form_message" placeholder="Su Dirección, Región y Notas Adicionales" required></textarea>
+                
+                <div style="text-align: center; margin-bottom: 15px; font-weight: bold; color: var(--accent);">
+                    <span data-lang="total_price_label">Precio Total:</span> <span id="total-price">$0</span> 
+                </div>
+                
+                <button type="submit" data-lang="form_send">Proceder al Pago (Simulación)</button>
+                
+                <div class="payment-trust-badges">
+                    <i class="fa-solid fa-shield-halved" title="Pago Seguro"></i>
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-brands fa-cc-amex" title="Amex"></i>
+                    <i class="fa-solid fa-lock" title="SSL Seguro"></i>
+                </div>
+                
             </form>
             <div id="form-message" style="margin-top: 20px; font-weight: 700; display: none; text-align: center;"></div>
         </div>
         
         <div id="track-order-box" class="card">
             <h4 data-lang="track_title">Rastreo de Pedidos</h4>
-            <input type="text" id="tracking-number" data-lang="track_placeholder" placeholder="Ingrese Número de Rastreo"> <button type="button" id="track-button" data-lang="track_button">Consultar mi Envío</button>
+            <select id="courier-select" required>
+                <option value="" disabled selected data-lang="track_courier_select">Seleccionar Transportista</option>
+                <option value="Chilexpress">Chilexpress</option>
+                <option value="Correos de Chile">Correos de Chile</option>
+                <option value="Starken">Starken</option>
+            </select>
+            <input type="text" id="tracking-number" data-lang="track_placeholder" placeholder="Ej: CHX123456789"> 
+            <button type="button" id="track-button" data-lang="track_button">Consultar mi Envío</button>
             <div id="tracking-message" style="margin-top: 15px; font-weight: 700; color: var(--accent); display: none;"></div>
         </div>
         </div>
@@ -837,6 +967,51 @@
 
 
 <script>
+    /* === CARRITO (AÑADIDO) === */
+    let cartCount = 0;
+    const unitPrice = 9990;
+    
+    function formatPrice(price) {
+        // Şili para birimi formatı: $X.XXX
+        return `$${price.toLocaleString('es-CL')}`;
+    }
+
+    function updateCartDisplay(){
+        document.getElementById('cart-count').textContent = cartCount;
+        const icon = document.getElementById('cart-icon');
+        icon.style.color = cartCount > 0 ? 'var(--accent)' : 'var(--secondary-accent)';
+        
+        const totalPrice = cartCount * unitPrice;
+        const priceElement = document.getElementById('total-price');
+        if (priceElement) {
+             priceElement.textContent = formatPrice(totalPrice);
+        }
+    }
+
+    function addToCart() {
+        cartCount++;
+        updateCartDisplay();
+        
+        const currentLang = localStorage.getItem('site-lang') || 'es';
+        const notification = document.getElementById('cart-notification');
+        const langCode = translations[currentLang] ? currentLang : 'es';
+        
+        let message = translations[langCode].cart_added.replace('{count}', cartCount);
+        
+        notification.textContent = message;
+        notification.classList.add('show');
+        
+        // Ocultar después de 3 segundos
+        clearTimeout(notification.timer);
+        notification.timer = setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
+        
+        // Sepete ekledikten sonra scroll yap
+        go('buy-form');
+    }
+    /* ========================= */
+    
     /* Yılın Otomatik Olarak Güncellenmesi */
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -847,7 +1022,6 @@
 
     function toggleMenu(){
         off.classList.toggle('show');
-        // Sayfa kaymasını engellemek için overflow: hidden ekle/kaldır (Güçlendirilmiş)
         document.body.style.overflow = off.classList.contains('show') ? 'hidden' : '';
     }
     hamb.addEventListener('click', toggleMenu);
@@ -857,16 +1031,12 @@
     /* REVEAL (GSAP ScrollTrigger ile animasyon) - Fonksiyon Kaldırıldı */
     function initReveal(){
         // Animasyonlar kaldırıldığı için bu fonksiyonun içeriği boş bırakılmıştır.
-        // GSAP ve ScrollTrigger içe aktarımları da HTML'den kaldırılmıştır.
     }
-    window.addEventListener('load', initReveal); // Sadece çağrılmasına izin verildi, içerik boş
+    window.addEventListener('load', initReveal); 
 
     /* SMOOTH SCROLL helper */
     function go(id){
-        // Kargo Takip Linki harici, tüm linkler için smooth scroll kullanılır.
-        // /track-order gibi bir yola gidiliyorsa, smooth scroll yapma.
         if(id && id.startsWith('/')){ 
-             // /track-order için burası çalışır
              window.location.href = id; 
              return; 
         }
@@ -874,7 +1044,6 @@
         const el = document.getElementById(id);
         if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
         
-        // Menü kapatma, sadece mobil cihazlarda değil, her zaman menü açıkken yapılmalıdır.
         if(off.classList.contains('show')) {
             off.classList.remove('show');
             document.body.style.overflow='';
@@ -888,14 +1057,16 @@
             track_order:"Kargo Takip", 
             gallery:"Galeri", 
             reviews:"Müşteri Yorumları", 
-            whatsapp_chat: "WhatsApp Destek", /* YENİ: WhatsApp Butonu Metni */
+            whatsapp_chat: "WhatsApp Destek", 
+            cart_added: "Sepete {count} ürün eklendi!", 
+            total_price_label: "Toplam Fiyat:",
             
             hero_title:"LUXTEK<span>CHILE M10</span>", 
             hero_sub:"Kablosuz Özgürlük ve Güç. LED Göstergeli Powerbank Özellikli Şarj Kutusu.", 
-            buy_now:"Şimdi Satın Al - $9.990", // YENİ FİYAT
+            buy_now:"Şimdi Satın Al - $9.990", 
             
             features_title:"Cepte Kolaylık, Güçlü Ses", 
-            features_text:"Luxtekchile M10, ergonomik tasarımı, dijital şarj kutusu ve 5 saatlik kullanım süresiyle günlük kullanım için idealdir.", 
+            features_text:"Luxtekchile M10, ergonomik tasarımı, dijital şarj kutusu ve 2-3 saat kulaklık, 5 saat kutu kullanım süresiyle günlük kullanım için idealdir.", 
             
             specs_title:"M10'un Pratikliğine Odaklan", 
             specs_text:"Günlük hayatta ihtiyacınız olan her şey bu küçük kutuda.", 
@@ -903,18 +1074,16 @@
             spec1_desc:"Şarj kutusu üzerindeki dijital LED ekran ile kulaklık ve kutu pil seviyesini anlık takip edin.", 
             spec2_title:"Güvenilir Bağlantı", 
             spec2_desc:"Gelişmiş Bluetooth 5.3 teknolojisi sayesinde kesintisiz, düşük gecikmeli ve stabil kablosuz bağlantı.", 
-            spec3_title:"Telefon Tutucu Kutu", 
-            spec3_desc:"Çok amaçlı şarj kutusu, aynı zamanda telefonunuz için pratik bir stand görevi görür.", 
             spec4_title:"Powerbank Fonksiyonu", 
             spec4_desc:"Yüksek kapasiteli şarj kutusu, acil durumlarda telefonunuzu şarj etmek için powerbank olarak kullanılabilir.", 
 
             details_title:"Teknik Avantajlar", 
             details_text:"Luxtekchile M10'un günlük performansı maksimize eden teknik üstünlükleri.", 
-            detail_product_desc: "M10, güçlü ses sürücüleri ve güvenilir Bluetooth 5.3 ile hem müzik hem de telefon görüşmelerinde yüksek performans sunar. Hafif ve ergonomik yapısıyla uzun süreli kullanımlarda rahatlık sağlar.", /* Metin Güncellendi */
+            detail_product_desc: "M10, güçlü ses sürücüleri ve güvenilir Bluetooth 5.3 ile hem müzik hem de telefon görüşmelerinde yüksek performans sunar. Hafif ve ergonomik yapısıyla uzun süreli kullanımlarda rahatlık sağlar.", 
             detail_tech_title:"Teknik Özellikler",
-            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> Pil Ömrü (Tek): <span>~5 Saat</span>', 
+            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> Kulaklık Pil Ömrü (Tek): <span>~2-3 Saat</span>', 
             detail_tech_2:'<i class="fa-solid fa-bluetooth-b"></i> Bağlantı: <span>Bluetooth 5.3</span>', 
-            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> Kutu Kapasitesi: <span>Powerbank Özellikli</span>', 
+            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> Kutu Kullanım Süresi: <span>~5 Saat</span>', // Güncellendi
             detail_tech_4:'<i class="fa-solid fa-volume-high"></i> Sürücü Çapı: <span>8mm Dinamik</span>', 
             detail_box_title:"Kutu İçeriği",
             detail_box_1:'<i class="fa-solid fa-earbuds"></i> Luxtekchile M10 Kulaklık Seti', 
@@ -928,32 +1097,35 @@
             reviews_title: "Müşteri Yorumları", 
             reviews_text: "Luxtekchile M10 kullanıcılarının deneyimlerini okuyun.", 
             review1_text: "Ses kalitesi bu fiyata göre inanılmaz. Özellikle şarj kutusunun telefon tutucu olması çok işime yaradı. Günlük kullanım için harika.", 
-            review1_author: "Pedro L. - Santiago", // Şili Adı
+            review1_author: "Pedro L. - Santiago", 
             review2_text: "Bağlantı çok hızlı ve stabil. Powerbank özelliği sayesinde telefonumun şarjı bittiğinde kurtarıcı oldu. Tavsiye ederim.", 
-            review2_author: "Ana S. - Valparaíso", // Şili Adı
+            review2_author: "Ana S. - Valparaíso", 
             review3_text: "Kulaklıklar kulağa çok iyi oturuyor ve uzun kullanımlarda rahatsız etmiyor. Sadece baslar biraz daha derin olabilirdi.", 
-            review3_author: "Carlos M. - Concepción", // Şili Adı
+            review3_author: "Carlos M. - Concepción", 
 
-            buy_title:"Siparişinizi Tamamlayın ve Garanti", 
-            buy_reply:"Aşağıdaki formu doldurarak Luxtekchile M10'u hemen sipariş edebilirsiniz. **Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır.** Ödeme ve teslimat bilgileri için size geri dönüş yapılacaktır. **Not: Stokta sadece 30 adet kulaklık kalmıştır!**", // Stok Notu Eklendi
+            buy_title:"Siparişinizi Tamamlayın ve Ödeme", 
+            buy_reply:"Aşağıdaki formu doldurarak Luxtekchile M10'u hemen sipariş edebilir ve ödemeye geçebilirsiniz. Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır. Ödemenizden hemen sonra siparişiniz işleme alınacaktır. Not: Stokta sadece 30 adet kulaklık kalmıştır!", // Yıldız kaldırıldı
             form_name:"Adınız Soyadınız", form_email:"E-posta Adresiniz", form_phone:"Telefon (Ülke Kodu ile)",
             form_color_select:"Renk Seçin", color_1:"Siyah", 
-            form_payment_select:"Ödeme Yöntemi Seçin (Şili)", 
-            payment_1: "Banka Transferi (Şili Bankaları)", 
-            payment_2: "Kredi Kartı (Ödeme Linki ile)", 
+            form_courier_select: "Kargo Şirketi Seçin", 
+            courier_1: "Chilexpress", 
+            courier_2: "Correos de Chile", 
+            courier_3: "Starken",
             form_message:"Adres, Bölge ve Ek Notlarınız", 
-            form_send:"Siparişi Tamamla",
-            form_success:"Sipariş talebiniz başarıyla alınmıştır. WhatsApp üzerinden yönlendiriliyorsunuz. Lütfen mesajınızı gönderin.", // Düzeltilen başarı mesajı
-            form_error:"Üzgünüz, bir sorun oluştu. Lütfen bilgileri doğru girdiğinizden emin olun ve tekrar deneyin.", // Düzeltilen hata mesajı
+            form_send:"Ödemeye Geç (Simülasyon)",
+            form_success:"Tebrikler! Siparişiniz başarıyla tamamlandı (Simülasyon). Ödemeniz alındı ve kargo hazırlık süreciniz başladı. Takip numaranızı e-posta ile alacaksınız.", 
+            form_error_empty: "Sepetiniz boş. Lütfen sipariş vermeden önce ürünü sepete ekleyin.",
+            form_error:"Üzgünüz, bir sorun oluştu. Lütfen bilgileri doğru girdiğinizden emin olun ve tekrar deneyin.", 
             
             // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Kargo Takibi",
-            track_placeholder: "Kargo Takip Numarasını Girin",
+            track_title: "Kargo Takibi (Şili Şirketleri Simülasyonu)",
+            track_courier_select: "Kargo Şirketi Seçin",
+            track_placeholder: "Takip Numarası Girin",
             track_button: "Kargomu Sorgula",
             tracking_status_not_found: "Belirtilen takip numarasına ait kargo bilgisi bulunamadı.",
-            tracking_status_success: "Kargonuz **{status}** durumundadır. Tahmini teslimat: {date}.",
-            tracking_status_processing: "Kargonuz hazırlanıyor/İşleniyor.",
-            tracking_status_shipped: "Kargonuz kargoya verildi.",
+            tracking_status_success: "Kargonuz {status} durumundadır. Tahmini teslimat: {date}.",
+            tracking_status_processing: "Kargonuz hazırlanıyor ve işleniyor.",
+            tracking_status_shipped: "Kargonuz kargoya verildi ve yolda.",
             tracking_status_delivered: "Kargonuz başarıyla teslim edildi.",
 
         },
@@ -963,10 +1135,12 @@
             gallery:"Gallery",
             reviews:"Customer Reviews",
             whatsapp_chat: "WhatsApp Support",
+            cart_added: "{count} item(s) added to cart!", 
+            total_price_label: "Total Price:",
             
             hero_title:"LUXTEK<span>CHILE M10</span>", 
             hero_sub:"Wireless Freedom and Power. Powerbank Feature Charging Case with LED Indicator.", 
-            buy_now:"Buy Now - $9.990", // YENİ FİYAT
+            buy_now:"Buy Now - $9.990", 
             
             features_title:"Pocket Convenience, Powerful Sound",
             features_text:"Luxtekchile M10 is ideal for daily use with its ergonomic design, digital charging case, and up to 5 hours of playtime.",
@@ -977,8 +1151,6 @@
             spec1_desc:"Monitor the battery level of the earbuds and case instantly with the digital LED screen on the charging box.",
             spec2_title:"Reliable Connection",
             spec2_desc:"Seamless, low-latency, and stable wireless connection thanks to advanced Bluetooth 5.3 technology.",
-            spec3_title:"Phone Holder Case",
-            spec3_desc:"The multi-purpose charging case also serves as a practical stand for your phone.",
             spec4_title:"Powerbank Function",
             spec4_desc:"The high-capacity charging case can be used as a powerbank to charge your phone in emergencies.",
 
@@ -1002,32 +1174,35 @@
             reviews_title: "Customer Reviews",
             reviews_text: "Read about the experiences of Luxtekchile M10 users.",
             review1_text: "The sound quality for this price is incredible. Especially the phone holder feature of the charging case is very useful. Great for daily use.",
-            review1_author: "Pedro L. - Santiago", // Şili Adı
+            review1_author: "Pedro L. - Santiago", 
             review2_text: "Connection is very fast and stable. The powerbank feature saved me when my phone battery died. Highly recommend.",
-            review2_author: "Ana S. - Valparaíso", // Şili Adı
+            review2_author: "Ana S. - Valparaíso", 
             review3_text: "The earbuds fit in the ear very well and are comfortable for long use. Just wish the bass was a little deeper.",
-            review3_author: "Carlos M. - Concepción", // Şili Adı
+            review3_author: "Carlos M. - Concepción", 
 
-            buy_title:"Complete Your Order and Warranty",
-            buy_reply:"You can order the Luxtekchile M10 immediately by filling out the form below. **Warranty: Only valid against factory defects caused by manufacturing. User errors, drops, liquid contact, etc., are outside the warranty scope.** We will contact you regarding payment and delivery information. **Note: Only 30 units remain in stock!**", 
+            buy_title:"Complete Your Order and Payment",
+            buy_reply:"You can order the Luxtekchile M10 immediately by filling out the form below and proceeding to payment. **Warranty: Only valid against factory defects caused by manufacturing. User errors, drops, liquid contact, etc., are outside the warranty scope.** Your order will be processed immediately after payment. **Note: Only 30 units remain in stock!**", 
             form_name:"Your Full Name", form_email:"Your Email Address", form_phone:"Phone (with Country Code)",
             form_color_select:"Select Color", color_1:"Black",
-            form_payment_select:"Select Payment Method (Chile)",
-            payment_1: "Wire Transfer (Chilean Banks)",
-            payment_2: "Credit Card (Payment Link)",
+            form_courier_select: "Select Courier",
+            courier_1: "Chilexpress",
+            courier_2: "Correos de Chile",
+            courier_3: "Starken",
             form_message:"Your Address, Region, and Additional Notes",
-            form_send:"Complete Order",
-            form_success:"Your order request has been received successfully. You are being redirected to WhatsApp. Please send your message.",
+            form_send:"Proceed to Payment (Simulation)",
+            form_success:"Congratulations! Your order has been successfully completed (Simulation). Your payment has been received, and your shipping preparation process has begun. You will receive your tracking number by email.",
+            form_error_empty: "Your cart is empty. Please add the product before completing the order.",
             form_error:"Sorry, an issue occurred. Please ensure your information is correct and try again.",
             
             // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Track Your Order",
+            track_title: "Track Your Order (Chilean Couriers Simulation)",
+            track_courier_select: "Select Courier",
             track_placeholder: "Enter Tracking Number",
             track_button: "Query My Shipment",
             tracking_status_not_found: "No shipping information found for the specified tracking number.",
             tracking_status_success: "Your shipment is **{status}**. Estimated delivery: {date}.",
-            tracking_status_processing: "Your shipment is being prepared/processed.",
-            tracking_status_shipped: "Your shipment has been dispatched.",
+            tracking_status_processing: "Your shipment is being prepared and processed.",
+            tracking_status_shipped: "Your shipment has been dispatched and is on the way.",
             tracking_status_delivered: "Your shipment has been successfully delivered.",
         },
         es:{
@@ -1036,10 +1211,12 @@
             gallery:"Galería",
             reviews:"Opiniones de Clientes",
             whatsapp_chat: "Soporte WhatsApp",
+            cart_added: "¡{count} artículo(s) añadido(s) al carrito!", 
+            total_price_label: "Precio Total:",
             
             hero_title:"LUXTEK<span>CHILE M10</span>", 
             hero_sub:"Libertad y Potencia Inalámbricas. Estuche de Carga con Función Powerbank e Indicador LED.", 
-            buy_now:"Comprar Ahora - $9.990", // YENİ FİYAT
+            buy_now:"Añadir al Carrito - $9.990", 
             
             features_title:"Comodidad de Bolsillo, Sonido Potente",
             features_text:"Luxtekchile M10 es ideal para el uso diario con su diseño ergonómico, estuche de carga digital y hasta 5 horas de reproducción.",
@@ -1050,8 +1227,6 @@
             spec1_desc:"Supervise instantáneamente el nivel de batería de los auriculares y el estuche con la pantalla digital LED en la caja de carga.",
             spec2_title:"Conexión Confiable",
             spec2_desc:"Conexión inalámbrica estable, de baja latencia y sin interrupciones gracias a la tecnología avanzada Bluetooth 5.3.",
-            spec3_title:"Estuche Soporte para Teléfono",
-            spec3_desc:"El estuche de carga multiusos también sirve como un práctico soporte para su teléfono.",
             spec4_title:"Función Powerbank",
             spec4_desc:"El estuche de carga de alta capacidad se puede utilizar como un powerbank para cargar su teléfono en emergencias.",
 
@@ -1081,26 +1256,29 @@
             review3_text: "Los auriculares se ajustan muy bien al oído y son cómodos para un uso prolongado. Solo desearía que los bajos fueran un poco más profundos.",
             review3_author: "Carlos M. - Concepción", 
 
-            buy_title:"Complete su Pedido y Garantía",
-            buy_reply:"Puede ordenar el Luxtekchile M10 inmediatamente completando el formulario a continuación. **Garanti: Solo válida contra defectos de fábrica causados por la fabricación. Errores del usuario, caídas, contacto con líquidos, etc., están fuera del alcance de la garantía.** Nos pondremos en contacto con usted para informarle sobre el pago y la entrega. **Nota: ¡Solo quedan 30 unidades en stock!**", 
+            buy_title:"Complete su Pedido y Pago",
+            buy_reply:"Puede ordenar el Luxtekchile M10 inmediatamente completando el formulario a continuación y procediendo al pago. **Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır.** Ödemenizden hemen sonra siparişiniz işleme alınacaktır. **Nota: ¡Solo quedan 30 unidades en stock!**", 
             form_name:"Su Nombre Completo", form_email:"Su Correo Electrónico", form_phone:"Teléfono (con Código de País)",
             form_color_select:"Seleccionar Color", color_1:"Negro",
-            form_payment_select:"Seleccionar Método de Pago (Chile)",
-            payment_1: "Transferencia Bancaria (Bancos Chilenos)",
-            payment_2: "Tarjeta de Crédito (Enlace de Pago)",
+            form_courier_select: "Seleccionar Transportista",
+            courier_1: "Chilexpress",
+            courier_2: "Correos de Chile",
+            courier_3: "Starken",
             form_message:"Su Dirección, Región y Notas Adicionales",
-            form_send:"Completar Pedido",
-            form_success:"¡Su solicitud de pedido ha sido recibida con éxito! Está siendo redirigido a WhatsApp. Por favor, envíe su mensaje.",
+            form_send:"Proceder al Pago (Simulación)",
+            form_success:"¡Felicidades! Su pedido ha sido completado con éxito (Simulación). Su pago ha sido recibido y su proceso de preparación de envío ha comenzado. Recibirá su número de seguimiento por correo electrónico.",
+            form_error_empty: "El carrito está vacío. Por favor, añada el producto antes de completar el pedido.",
             form_error:"Lo sentimos, ha ocurrido un problema. Por favor, asegúrese de que su información sea correcta e inténtelo de nuevo.",
             
             // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Rastreo de Pedidos",
-            track_placeholder: "Ingrese Número de Rastreo",
+            track_title: "Rastreo de Pedidos (Simulación de Transportistas Chilenos)",
+            track_courier_select: "Seleccionar Transportista",
+            track_placeholder: "Ingresar Número de Seguimiento",
             track_button: "Consultar mi Envío",
             tracking_status_not_found: "No se encontró información de envío para el número de seguimiento especificado.",
             tracking_status_success: "Su envío está en estado **{status}**. Entrega estimada: {date}.",
             tracking_status_processing: "Su envío se está preparando/procesando.",
-            tracking_status_shipped: "Su envío ha sido despachado.",
+            tracking_status_shipped: "Su envío ha sido despachado y está en camino.",
             tracking_status_delivered: "Su envío ha sido entregado con éxito.",
         },
         ar:{
@@ -1109,10 +1287,12 @@
             gallery:"المعرض",
             reviews:"تقييمات العملاء",
             whatsapp_chat: "دعم واتساب",
+            cart_added: "تمت إضافة {count} عنصر(ة) إلى السلة!", 
+            total_price_label: "السعر الإجمالي:",
             
             hero_title:"لوكس تيك تشيلي <span>M10</span>", 
             hero_sub:"حرية وقوة لاسلكية. علبة شحن بخاصية Powerbank ومؤشر LED.", 
-            buy_now:"اشترِ الآن - 9.990 دولار", // YENİ FİYAT
+            buy_now:"أضف إلى السلة - 9.990 دولار", 
             
             features_title:"راحة الجيب، صوت قوي",
             features_text:"تعتبر Luxtekchile M10 مثالية للاستخدام اليومي بتصميمها المريح وعلبة الشحن الرقمية ووقت التشغيل الذي يصل إلى 5 ساعات.",
@@ -1123,8 +1303,6 @@
             spec1_desc:"راقب مستوى بطارية السماعات والعلبة على الفور بفضل شاشة LED الرقمية الموجودة على علبة الشحن.",
             spec2_title:"اتصال موثوق",
             spec2_desc:"اتصال لاسلكي سلس ومنخفض الكمون ومستقر بفضل تقنية بلوتوث 5.3 المتقدمة.",
-            spec3_title:"علبة حاملة للهاتف",
-            spec3_desc:"تعمل علبة الشحن متعددة الأغراض أيضاً كحامل عملي لهاتفك.",
             spec4_title:"وظيفة Powerbank",
             spec4_desc:"يمكن استخدام علبة الشحن ذات السعة العالية كباوربانك لشحن هاتفك في حالات الطوارئ.",
 
@@ -1154,46 +1332,249 @@
             review3_text: "تثبت السماعات في الأذن بشكل جيد ومريحة للاستخدام الطويل. أتمنى فقط أن تكون الأصوات الجهورية أعمق قليلاً.",
             review3_author: "كارلوس م. - كونسبسيون",
 
-            buy_title:"أكمل طلبك والضمان",
-            buy_reply:"يمكنك طلب Luxtekchile M10 فوراً عن طريق ملء النموذج أدناه. **الضمان: صالح فقط ضد عيوب المصنع الناتجة عن التصنيع. أخطاء المستخدم، السقوط، ملامسة السوائل، وما إلى ذلك، تخرج عن نطاق الضمان.** سنتواصل معك بخصوص معلومات الدفع والتسليم. **ملاحظة: تبقى 30 وحدة فقط في المخزون!**", 
+            buy_title:"أكمل طلبك والدفع",
+            buy_reply:"يمكنك طلب Luxtekchile M10 فوراً عن طريق ملء النموذج أدناه والمتابعة للدفع. **الضمان: صالح فقط ضد عيوب المصنع الناتجة عن التصنيع. أخطاء المستخدم، السقوط، ملامسة السوائل، وما إلى ذلك، تخرج عن نطاق الضمان.** ستتم معالجة طلبك فوراً بعد الدفع. **ملاحظة: تبقى 30 وحدة فقط في المخزون!**", 
             form_name:"اسمك الكامل", form_email:"عنوان بريدك الإلكتروني", form_phone:"الهاتف (مع رمز البلد)",
             form_color_select:"اختر اللون", color_1:"أسود",
-            form_payment_select:"اختر طريقة الدفع (تشيلي)",
-            payment_1: "تحويل بنكي (بنوك تشيلية)",
-            payment_2: "بطاقة ائتمان (رابط دفع)",
+            form_courier_select: "اختر شركة الشحن",
+            courier_1: "Chilexpress",
+            courier_2: "Correos de Chile",
+            courier_3: "Starken",
             form_message:"عنوانك والمنطقة والملاحظات الإضافية",
-            form_send:"إكمال الطلب",
-            form_success:"تم استلام طلبك بنجاح. يتم توجيهك إلى واتساب. يرجى إرسال رسالتك.",
+            form_send:"المتابعة للدفع (محاكاة)",
+            form_success:"تهانينا! لقد تم إكمال طلبك بنجاح (محاكاة). تم استلام دفعتك وبدأت عملية تجهيز شحنتك. ستتلقى رقم التتبع عبر البريد الإلكتروني.",
+            form_error_empty: "سلتك فارغة. يرجى إضافة المنتج قبل إكمال الطلب.",
             form_error:"نأسف، حدث خطأ. يرجى التأكد من صحة معلوماتك والمحاولة مرة أخرى.",
 
             // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "تتبع شحنتك",
+            track_title: "تتبع شحنتك (محاكاة شركات الشحن التشيلية)",
+            track_courier_select: "اختر شركة الشحن",
             track_placeholder: "أدخل رقم التتبع",
             track_button: "الاستعلام عن شحنتي",
             tracking_status_not_found: "لم يتم العثور على معلومات شحن لرقم التتبع المحدد.",
             tracking_status_success: "شحنتك في حالة **{status}**. التسليم المتوقع: {date}.",
-            tracking_status_processing: "شحنتك قيد الإعداد/المعالجة.",
-            tracking_status_shipped: "تم شحن بضاعتكم.",
+            tracking_status_processing: "شحنتك قيد الإعداد والمعالجة.",
+            tracking_status_shipped: "تم شحن بضاعتكم وهي في الطريق.",
             tracking_status_delivered: "تم تسليم شحنتك بنجاح.",
         }
     };
 
     /* Dil Uygulama Fonksiyonu */
     function applyLang(){
-        const L = localStorage.getItem('site-lang') || 'es'; // Başlangıç dilini Español olarak ayarladım
-        document.documentElement.lang = L; // HTML lang özelliğini ayarla
+        const L = localStorage.getItem('site-lang') || 'es'; 
+        document.documentElement.lang = L; 
         document.documentElement.dir = (L==='ar') ? 'rtl' : 'ltr';
         
         document.querySelectorAll('[data-lang]').forEach(el=>{
             const key = el.getAttribute('data-lang');
             if(key && translations[L] && translations[L][key] !== undefined){
                 const translation = translations[L][key];
-                if (el.tagName === 'INPUT' && (el.getAttribute('type') === 'text' || el.getAttribute('type') === 'email')) {
-                    // input'lar için placeholder
+                
+                if (key === 'buy_now') {
+                    el.textContent = translation; 
+                }
+                else if (el.tagName === 'INPUT' && (el.getAttribute('type') === 'text' || el.getAttribute('type') === 'email')) {
                     if(key.startsWith('form_') || key.startsWith('track_')) {
                         el.placeholder = translation;
                     } else {
-                        // Diğer inputlar için (şu an yok ama güvenlik amaçlı)
                         el.value = translation;
                     }
-                } else if (el.tagName === 'TE
+                } else if (el.tagName === 'TEXTAREA') {
+                    if (key === 'form_message') {
+                         el.placeholder = translation;
+                    } else {
+                         el.innerHTML = translation;
+                    }
+                } else if (el.tagName === 'OPTION') {
+                    el.textContent = translation;
+                } else if (el.tagName === 'BUTTON') {
+                     el.textContent = translation;
+                }
+                else {
+                    el.innerHTML = translation;
+                }
+            } 
+        });
+        document.querySelectorAll('[data-lang-code]').forEach(b=> b.classList.toggle('sel', b.getAttribute('data-lang-code')===L));
+        
+        // Kargo Takip Select ve Form Select Güncellemeleri
+        document.getElementById('courier-select').querySelector('option[disabled]').textContent = translations[L].track_courier_select;
+        document.querySelector('select[name="courier_option"]').querySelector('option[disabled]').textContent = translations[L].form_courier_select;
+        
+        const messageDiv = document.getElementById('form-message');
+        if (messageDiv) {
+            messageDiv.style.display = 'none';
+            messageDiv.textContent = '';
+        }
+        const trackMessageDiv = document.getElementById('tracking-message');
+        if (trackMessageDiv) {
+            trackMessageDiv.style.display = 'none';
+            trackMessageDiv.textContent = '';
+        }
+        
+        const whatsappChatSpan = document.querySelector('#whatsapp-fixed span[data-lang="whatsapp_chat"]');
+        if (whatsappChatSpan) {
+            whatsappChatSpan.textContent = translations[L].whatsapp_chat;
+        }
+        
+        updateCartDisplay();
+    }
+    
+    /* Yeni Dil Ayarlama Fonksiyonu */
+    function setLang(code){ 
+        localStorage.setItem('site-lang', code); 
+        applyLang(); 
+    }
+    
+    /* FORM İŞLEMİ (E-Ticaret Simülasyonu) */
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const messageDiv = document.getElementById('form-message');
+        const currentLang = localStorage.getItem('site-lang') || 'es'; 
+
+        if (!form.checkValidity()) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.color = 'red';
+            messageDiv.textContent = translations[currentLang].form_error;
+            return;
+        }
+        
+        if (cartCount === 0) {
+             messageDiv.style.display = 'block';
+             messageDiv.style.color = 'red';
+             messageDiv.textContent = translations[currentLang].form_error_empty;
+             return; 
+        }
+
+        // Simülasyon: Ödeme başarılı oldu.
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'var(--secondary-accent)'; 
+        messageDiv.textContent = translations[currentLang].form_success;
+        
+        // Sipariş detayları (gerçek bir sistemde sunucuya gönderilir)
+        const formData = new FormData(form);
+        const orderData = {};
+        for (let [key, value] of formData.entries()) {
+            orderData[key] = value;
+        }
+        orderData.item = "Luxtekchile M10 TWS Audífonos";
+        orderData.quantity = cartCount;
+        orderData.total_price = formatPrice(cartCount * unitPrice);
+
+        // Konsola sipariş detaylarını yazdır (Simülasyon)
+        console.log('--- NUEVO PEDIDO SIMULADO ---');
+        console.log(JSON.stringify(orderData, null, 2));
+        console.log('-----------------------------');
+
+        
+        form.reset(); // Formu sıfırla
+        cartCount = 0; // Sepeti sıfırla
+        updateCartDisplay();
+        
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+        }, 5000); // 5 saniye sonra mesajı gizle
+    }
+
+    /* KARGO TAKİP İŞLEMİ (Simülasyon - Tüm Şirketler) */
+    async function handleTrackOrder() {
+        const courier = document.getElementById('courier-select').value;
+        const trackingNumber = document.getElementById('tracking-number').value.trim();
+        const trackingMessage = document.getElementById('tracking-message');
+        const currentLang = localStorage.getItem('site-lang') || 'es'; 
+
+        trackingMessage.style.display = 'block';
+        trackingMessage.style.color = '#777';
+        trackingMessage.textContent = translations[currentLang].tracking_status_processing; 
+
+        if (!courier || !trackingNumber) {
+            trackingMessage.style.color = 'red';
+            trackingMessage.textContent = translations[currentLang].form_error; 
+            return;
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 2000)); // 2 saniye bekleme
+
+        // Simülasyon Verileri (Chilexpress: CHX, Correos: COR, Starken: STR)
+        const mockTrackingData = {
+            "Chilexpress": {
+                "CHX123456789": { status: "delivered", date: "12/12/2025" },
+                "CHX987654321": { status: "shipped", date: "20/12/2025" },
+            },
+            "Correos de Chile": {
+                "COR555888111": { status: "shipped", date: "21/12/2025" },
+                "COR444777222": { status: "processing", date: "24/12/2025" },
+            },
+            "Starken": {
+                "STR111222333": { status: "processing", date: "23/12/2025" },
+                "STR000111000": { status: "delivered", date: "15/12/2025" },
+            }
+        };
+        
+        const result = mockTrackingData[courier] ? mockTrackingData[courier][trackingNumber.toUpperCase()] : null;
+
+        if (result) {
+            trackingMessage.style.color = 'var(--accent)';
+            
+            let statusTextKey;
+            switch(result.status) {
+                case "delivered": statusTextKey = "tracking_status_delivered"; break;
+                case "shipped": statusTextKey = "tracking_status_shipped"; break;
+                case "processing": statusTextKey = "tracking_status_processing"; break;
+                default: statusTextKey = "tracking_status_processing";
+            }
+            
+            const statusLocalized = translations[currentLang][statusTextKey];
+            
+            if (result.status === "delivered") {
+                 trackingMessage.textContent = statusLocalized; 
+            } else {
+                 const successMessage = translations[currentLang].tracking_status_success;
+                 trackingMessage.textContent = successMessage.replace('{status}', statusLocalized).replace('{date}', result.date);
+            }
+            
+        } else {
+            trackingMessage.style.color = 'red';
+            trackingMessage.textContent = translations[currentLang].tracking_status_not_found;
+        }
+    }
+
+
+    /* DOM Yüklendiğinde Dinleyicileri Kurma ve Dili Uygulama */
+    document.addEventListener('DOMContentLoaded', ()=>{
+        // Navigasyon bağlantılarına tıklama dinleyicileri ekle
+        document.querySelectorAll('#deskNav a, .panel a, .desktop-icon-link').forEach(a=>{
+             a.addEventListener('click', (e) => {
+                 const href = a.getAttribute('href');
+                 if(href && (href.startsWith('#') || href.startsWith('/'))){ 
+                     e.preventDefault();
+                     const target = href.startsWith('#') ? href.substring(1) : href;
+                     go(target); 
+                 }
+             }); 
+        });
+        
+        // Dil değiştirme düğmelerine tıklama dinleyicilerini ekle
+        document.querySelectorAll('[data-lang-code]').forEach(b=>{
+            b.addEventListener('click', ()=> setLang(b.getAttribute('data-lang-code')));
+        });
+
+        // Form gönderim dinleyicisini ekle
+        const quoteForm = document.getElementById('quote-form');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', handleFormSubmit);
+        }
+        
+        // Kargo Takip Butonu dinleyicisini ekle
+        const trackButton = document.getElementById('track-button');
+        if (trackButton) {
+            trackButton.addEventListener('click', handleTrackOrder);
+        }
+        
+        // Başlangıç dilini uygula
+        applyLang();
+    });
+</script>
+</body>
+</html>
