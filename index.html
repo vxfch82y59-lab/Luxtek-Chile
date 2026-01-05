@@ -1,1580 +1,1719 @@
-<!doctype html>
-<html lang="es" dir="ltr">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="Luxtekchile: Premium TWS Kulaklık (Luxtekchile M10) - Powerbank Özellikli Şarj Kutusu, Bluetooth 5.3 ve Dijital LED Gösterge. Şili'den Global E-Ticaret.">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Luxtekchile M10 — Premium TWS Kulaklık | Hemen Satın Al</title>
-    <link rel="canonical" href="https://luxtekchile.com/" /> 
-    
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/vxfch82y59-lab/Atlantik-nuts/refs/heads/main/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxTekChile - M10 TWS Auriculares Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
-        /* LUXTEKCHILE CSS Değişkenleri (Teknoloji Teması) */
-        :root{
-            --accent:#00bfff; /* Siber Mavi Vurgu */
-            --secondary-accent: #ff4500; /* Turuncu Vurgu */
-            --dark:#0a0a1a; /* Koyu Mavi/Siyah Arka Plan */
-            --max:1200px;
-            --header-footer-bg: #14142a; /* Daha Açık Koyu Arka Plan */
-            --header-footer-color: #fff;
-            
-            /* Arka Plan: Soyut Teknoloji Deseni (ve Siyah) */
-            --tech-texture-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="%231a1a38" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="%230a0a1a"/><rect width="100%" height="100%" fill="url(%23g)"/></svg>');
-        }
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{
-            font-family:Inter,system-ui,Arial;
-            background:var(--tech-texture-url) fixed center/cover; 
-            color:#ddd;
-            -webkit-font-smoothing:antialiased;
-            /* Yana Kaymayı Engellemek İçin GÜÇLENDİRİLMİŞ Güvenlik Önlemi */
-            overflow-x: hidden !important; 
-        }
-        .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-
-        /* HEADER */
-        header{
-            position:fixed;left:0;right:0;top:0;height:70px;z-index:50;
-            backdrop-filter:blur(8px);
-            background:var(--header-footer-bg); 
-            color:var(--header-footer-color);
-            display:flex;align-items:center;justify-content:center;
-            border-bottom:1px solid rgba(0, 191, 255, 0.2);
-            width: 100%; /* Güvenlik */
-        }
-        .h-inner {
-            display: flex;
-            justify-content: space-between; /* Menü ve işlemlerin ayrılması */
-            align-items: center;
-            width: 100%;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0066FF;
+            --success: #00C853;
+            --danger: #FF3D00;
+            --warning: #FFB300;
+            --white: #ffffff;
+            --dark: #1a1a2e;
         }
         
-        /* === NUEVOS ESTILOS DEL CARRITO (AÑADIDOS) === */
-        #cart-icon {
-            position: relative;
-            color: var(--secondary-accent);
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0 10px;
-            order: 2; /* Derecho después del logo en móvil */
-            margin-left: 10px;
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f5f7fa;
         }
         
-        #cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: var(--accent); /* Azul Ciber */
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 50%;
-            padding: 2px 6px;
-            min-width: 20px;
-            text-align: center;
-            border: 1px solid var(--dark);
-        }
-
-        /* NOTIFICACIÓN DE CARRITO (AÑADIDOS) */
-        #cart-notification {
+        header {
             position: fixed;
-            bottom: 80px; /* Sobre el botón de WhatsApp */
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 191, 255, 0.95);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(0, 191, 255, 0.4);
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-            font-weight: bold;
-        }
-        
-        #cart-notification.show {
-            opacity: 1;
-        }
-        /* ============================================== */
-
-
-        /* HAMBURGER MENU BUTTON - SOLA TAŞINDI */
-        #hamb {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 28px;
-            cursor: pointer;
-            padding: 0 10px;
-            order: -1; /* Mobil görünümde en sola taşı */
-        }
-        
-        /* LOGO: Teknolojiye Uygun Stiller */
-        .brand{font-family: 'Orbitron', sans-serif; font-weight:700; font-size:22px; color:#fff; letter-spacing: 1px; flex-grow: 1; text-align: center;} /* Mobil ortalama - KÜÇÜLTÜLDÜ (24px'ten 22px'e) */
-        .brand span {color:var(--accent);}
-        .brand::before {
-            content: '\f25a'; /* Headset İkonu */
-            font-family: 'Font Awesome 6 Free'; 
-            font-weight: 900;
-            color: var(--secondary-accent); /* Turuncu */
-            font-size: 26px; /* İkon da küçültüldü */
-            margin-right: 8px; /* Boşluk azaltıldı */
-            display: inline-block;
-            vertical-align: middle;
-            text-shadow: 0 0 5px rgba(255, 69, 0, 0.8);
-        }
-        
-        /* Genel Stil Düzeltmeleri */
-        nav a{color:#fff;}
-        .langs button{
-            background: none;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            color: #ccc;
-            padding: 8px 12px;
-            margin-right: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s, border-color 0.2s;
-        }
-        .langs button.sel{background:var(--accent);border-color:var(--accent);}
-        
-        /* OFF CANVAS (MOBİL MENÜ) STİLLERİ */
-        .off {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 100;
-            pointer-events: none; /* Etkileşimi devre dışı bırak */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .off.show {
-            opacity: 1;
-            pointer-events: auto; /* Açıkken etkileşimi etkinleştir */
-        }
-        .panel {
-            position: absolute;
-            top: 0;
-            /* SOL TARAFTAN AÇILMASI İÇİN */
-            left: -300px; /* Başlangıçta ekran dışı */
-            width: 280px;
-            height: 100%;
-            background: var(--header-footer-bg);
-            padding: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-            transition: left 0.3s ease;
-            overflow-y: auto;
-        }
-        .off.show .panel {
-            left: 0; /* Açıkken içeri kaydır */
-        }
-        .bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .off.show .bg {
-            opacity: 1;
-        }
-        .panel a {
-            display: block;
-            padding: 12px 0;
-            text-decoration: none;
-            color: #ccc;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
-        .panel a:hover {
-            color: var(--accent);
-        }
-        /* Mobil Menüdeki WhatsApp Butonu: Daha Profesyonel */
-        #mobile-whatsapp {
-            color: #25D366 !important;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        #mobile-whatsapp:hover {
-            background-color: rgba(37, 211, 102, 0.1);
-            color: #fff !important;
-        }
-
-
-        /* HERO - Koyu Tema ve Işık Efekti */
-        .hero{
-            height:calc(100vh - 70px); 
-            max-height: 600px; /* Azaltılmış maksimum yükseklik */
-            margin-top:70px;
-            background: linear-gradient(135deg, rgba(10, 10, 26, 0.95) 0%, rgba(20, 20, 42, 0.95) 100%), var(--tech-texture-url);
-            box-shadow: inset 0 0 50px rgba(0, 191, 255, 0.2); 
-            border-bottom-left-radius: 0; 
-            border-bottom-right-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), #00D9FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: var(--white);
         }
         
         .hero-content {
-            color: #fff;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            /* Değişiklik burada: 45px'ten 40px'e düşürüldü */
-            font-size: 40px; 
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px var(--accent);
-        }
-        .hero-content h1 span {
-            color: var(--accent);
-            font-family: 'Orbitron', sans-serif; 
+            max-width: 900px;
         }
         
-        .hero-content p {
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
             font-size: 22px;
-            font-weight: 400;
             margin-bottom: 40px;
-            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+            opacity: 0.95;
         }
         
-        /* Satın Alma Butonu (Vurgulu) */
-        .hero-buttons a {
-            background: var(--secondary-accent); /* Turuncu */
-            padding: 15px 35px;
-            font-size: 18px;
-            box-shadow: 0 0 15px var(--secondary-accent);
-        }
-        .hero-buttons a:hover {
-            background: #cc3700; 
-            box-shadow: 0 0 20px #ff662b;
-        }
-
-        /* CONTENT (Bölümler) */
-        .section{padding:80px 0;text-align:center; background: transparent;}
-        .title{
-            font-size:40px;
-            margin-bottom:15px;
-            color:#fff;
-            font-weight:800;
-            text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
-            font-family: 'Orbitron', sans-serif; 
-        }
-        .lead{color:#bbb;margin-bottom:50px;font-size: 18px;}
-        
-        /* ÖZELLİKLER GİRİŞ */
-        #features-intro {
-            padding: 50px 0 100px 0; 
-            background: var(--header-footer-bg);
-        }
-        #features-intro .title { color: #fff; text-shadow: none; }
-        #features-intro .lead { color: #ccc; font-size: 16px; }
-        
-        /* TEKNİK ÖZELLİKLER VE AVANTAJLART */
-        #specs .grid {
-            display: grid;
-            gap: 40px 25px;
-            /* 3 sütun için minmax değeri 300px'ten 280px'e düşürüldü */
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-        }
-        #specs .card {
-            background: #1c1c38; 
-            border: 1px solid rgba(0, 191, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            min-height: 250px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        #specs .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 191, 255, 0.3);
+        .hero-price {
+            font-size: 80px;
+            font-weight: 900;
+            margin: 32px 0;
+            font-family: 'Poppins', sans-serif;
         }
         
-        /* İkon Stili (Özellikler için) */
-        #specs .icon-box {
-            font-size: 40px;
-            color: var(--accent); 
-            margin-bottom: 15px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
+        .btn {
+            display: inline-flex;
             align-items: center;
-        }
-
-        #specs .card h4 {
-            color: #fff; 
-            font-size: 22px;
-            margin-bottom: 10px;
-            font-family: 'Orbitron', sans-serif;
-        }
-        #specs .card p {
-            color: #ccc;
-        }
-
-        /* ÜRÜN DETAYLARI */
-        #details .grid {
-            /* 3 kart kalacak */
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); 
-        }
-        #details .card {
-            background: #1c1c38;
-            border: 1px solid rgba(255, 69, 0, 0.1);
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Detay Listesi Stili */
-        #details ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-        }
-        #details ul li {
-            text-align: left;
-            padding: 10px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-            color: #ccc;
-            font-size: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #details ul li i {
-            color: var(--secondary-accent); /* Turuncu ikonlar */
-            margin-right: 10px;
-        }
-        #details ul li span {
+            gap: 10px;
+            padding: 22px 48px;
+            font-size: 20px;
             font-weight: 700;
-            color: #fff;
-        }
-        
-        /* GALERİ BÖLÜMÜ STİLİ */
-        #gallery-section {
-            background: #0d0d21; /* Hafif koyu arka plan */
-            padding: 80px 0;
-        }
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .media-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-            height: 250px; /* Sabit bir yükseklik vererek fotoların oturmasını sağlar */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .media-item:hover {
-            transform: scale(1.02);
-        }
-        .media-item img, .media-item video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Görüntülerin kutuya tam oturmasını sağlar */
-            display: block;
-        }
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .video-overlay i {
-            font-size: 50px;
-            color: #fff;
-            border: 3px solid #fff;
-            border-radius: 50%;
-            padding: 15px;
-        }
-        
-        /* YENİ: Video Öğesinin Genişletilmesi */
-        @media(min-width: 900px) {
-            .video-item {
-                grid-column: span 2; /* Masaüstünde 2 sütun kapla */
-            }
-        }
-
-        /* YORUM KARTLARI STİLİ */
-        #reviews-section {
-            background: var(--header-footer-bg); 
-            padding: 80px 0;
-        }
-        .review-card {
-            background: #1c1c38;
-            border: 1px solid rgba(255, 69, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .review-card .stars {
-            color: gold;
-            margin-bottom: 10px;
-        }
-        .review-card strong {
-            display: block;
-            margin-top: 15px;
-            color: var(--accent);
-        }
-
-        /* TEKLİF/SATIN ALMA BÖLÜMÜ */
-        #buy-form {
-            background: #1c1c38;
-            border-top: 5px solid var(--secondary-accent);
-            border-bottom: 5px solid var(--secondary-accent);
-            box-shadow: 0 0 30px rgba(255, 69, 0, 0.3);
-        }
-        #buy-form .title {
-            color: var(--secondary-accent);
-        }
-        #buy-form .lead {
-            color: #ccc;
-        }
-        
-        .contact-form input, .contact-form textarea, .contact-form select {
-            background: #2a2a47; 
-            border: 1px solid #00bfff22;
-            color: #fff;
-        }
-        .contact-form input::placeholder, .contact-form textarea::placeholder {
-            color: #999;
-        }
-        .contact-form button {
-            background: var(--secondary-accent); /* Turuncu */
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-        .contact-form button:hover {
-            background: #cc3700;
-            box-shadow: 0 0 10px var(--secondary-accent);
-        }
-        #form-message {
-            color: var(--accent) !important;
-        }
-        
-        /* Form Seçenekleri ve İlgili Stiller */
-        .contact-form input, .contact-form select, .contact-form textarea, .contact-form button {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        .contact-form select {
-            appearance: none; /* Varsayılan ok simgesini kaldır */
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 18px;
-            padding-right: 35px; /* Ok için yer bırak */
-        }
-        
-        /* KARGO TAKİP KUTUSU STİLİ */
-        #track-order-box {
-            background: #1c1c38;
-            border: 1px solid rgba(0, 191, 255, 0.2);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #track-order-box h4 {
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
-        }
-        #track-order-box input, #track-order-box select {
-            background: #2a2a47; 
-            border: 1px solid #00bfff22;
-            color: #fff;
-            padding: 12px;
-            border-radius: 6px;
-            width: 100%;
-            margin-bottom: 15px;
-        }
-         #track-order-box select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ccc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 18px;
-            padding-right: 35px;
-        }
-        #track-order-box button {
-            background: var(--accent);
-            color: #fff;
-            padding: 12px;
+            background: linear-gradient(135deg, #00A19C, #008a86);
+            color: var(--white);
             border: none;
-            border-radius: 6px;
+            border-radius: 16px;
             cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
-        #track-order-box button:hover {
-            background: #008cc9;
-        }
-
-        /* CONTACT SECTION (AYAKTA KALAN) */
-        #contact {background:var(--header-footer-bg); border-top: 1px solid rgba(255, 255, 255, 0.1);}
-        #contact .title {color:#fff; text-shadow: none;}
-        #contact .contact-info p { margin-bottom: 10px; }
         
-        /* FOOTER */
-        footer{
-            background:var(--dark);
-            color:#777;
-            padding: 20px 0;
-            text-align: center;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 161, 156, 0.6);
         }
-
-        /* Sabit WhatsApp Butonu - PROFESYONEL VERSİYON */
-        #whatsapp-fixed {
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .stock-warning {
+            background: rgba(255, 61, 0, 0.25);
+            border: 2px solid var(--danger);
+            padding: 20px 32px;
+            border-radius: 16px;
+            font-weight: 800;
+            margin: 32px auto;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .modal {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99;
-            background-color: #25D366; /* WhatsApp Yeşil */
-            color: white;
-            border-radius: 8px; /* Daha az yuvarlak */
-            width: auto;
-            height: auto;
-            padding: 12px 18px;
-            display: flex;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-        #whatsapp-fixed i {
-            font-size: 24px;
-            margin-right: 8px;
-        }
-        #whatsapp-fixed:hover {
-            transform: scale(1.05);
-            background-color: #128C7E; /* Koyu Yeşil */
-            box-shadow: 0 6px 15px rgba(18, 140, 126, 0.5);
+            z-index: 10000;
+            padding: 20px;
         }
         
-        /* MASAÜSTÜ ÖZEL DÜZENLEME (900px ve üzeri) */
-        @media(min-width:900px){
-            .h-inner {
-                 justify-content: center; /* Başlangıçta ortala */
+        .modal.active { display: flex; }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
             }
-            .brand {
-                text-align: center; 
-                flex-grow: 0;
-            }
-            /* Masaüstü Navigasyon tamamen gizlenmeli */
-            #deskNav {
-                display: none; 
-            }
-            #hamb {
-                display: flex; /* Hamburger menüsü masaüstünde de gösterilsin */
-            }
-            
-            /* Değişiklik burada: 60px'ten 55px'e düşürüldü */
-            .hero-content h1 {font-size: 55px;} 
-            
-            /* 3 kart kalacak */
-            #reviews-section .grid {
-                grid-template-columns: 1fr 1fr 1fr; 
-            }
-            /* Özellikler (SPECS) bölümü 3 kart ile düzenlenir */
-            #specs .grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-            #specs .card {
-                 min-height: 280px;
-            }
-            /* Video öğesinin genişletilmesi */
-            .media-item.video-item {
-                grid-column: span 2; /* Masaüstünde 2 sütun kapla */
-            }
-            
-            /* CARRITO: Reajuste en desktop para que se alinee */
-            #cart-icon {
-                 order: 3;
-                 margin-left: auto; /* Empuja el carrito a la derecha */
-            }
-             /* RTL Kargo Takip Düzeltmeleri */
-            [dir="rtl"] #track-order-box select {
-                background-position: left 10px center;
-                padding-left: 35px;
-                padding-right: 12px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
-        /* RTL Desteği için genel düzenlemeler */
-        [dir="rtl"] .brand::before {
-            margin-right: 0;
-            margin-left: 8px; /* Boşluk azaltıldı */
-        }
-        [dir="rtl"] .langs button {
-            margin-right: 0;
-            margin-left: 10px;
-        }
-        [dir="rtl"] .langs button.sel {
-            border-left: 2px solid var(--accent);
-            border-right: none;
-        }
-        [dir="rtl"] #details ul li {
-            text-align: right;
-            direction: rtl;
-        }
-        [dir="rtl"] #details ul li i {
-            margin-right: 0;
-            margin-left: 10px;
-        }
-        [dir="rtl"] .contact-form select {
-            background-position: left 10px center;
-            padding-left: 35px;
-            padding-right: 12px;
-        }
-        [dir="rtl"] .panel {
-             left: auto; 
-             right: -300px; /* Sağa kaydır */
-             transition: right 0.3s ease;
-        }
-        [dir="rtl"] .off.show .panel {
-            right: 0;
-            left: auto;
-        }
-        [dir="rtl"] #whatsapp-fixed {
-            right: auto;
-            left: 20px;
-        }
-        [dir="rtl"] #track-order-box select {
-            background-position: left 10px center;
-            padding-left: 35px;
-            padding-right: 12px;
+        .modal-content h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--dark);
         }
         
-        /* ÖDEME GÜVEN ROZETİ EKLENDİ */
-        .payment-trust-badges {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+        
+        .form-group .error {
+            color: var(--danger);
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.invalid .error {
+            display: block;
+        }
+        
+        .form-group.invalid input,
+        .form-group.invalid select {
+            border-color: var(--danger);
+            background: rgba(255, 61, 0, 0.05);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            box-shadow: 0 10px 30px rgba(108, 117, 125, 0.4);
+        }
+        
+        .loading {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .loading.active { display: flex; }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #00A19C;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            padding: 20px 30px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            z-index: 10002;
+            display: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .toast.active { display: block; }
+        .toast.success { background: var(--success); }
+        .toast.error { background: var(--danger); }
+        
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 40px 20px;
             text-align: center;
         }
-        .payment-trust-badges i {
-            font-size: 35px;
-            margin: 0 8px;
-            color: #25D366; /* WhatsApp Yeşil */
-            text-shadow: 0 0 5px rgba(37, 211, 102, 0.5);
-            transition: color 0.3s;
+        
+        footer p {
+            margin: 5px 0;
         }
-        .payment-trust-badges i.fa-lock {
-             color: var(--accent);
-             text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 48px; }
+            .hero-price { font-size: 56px; }
+            .hero p { font-size: 18px; }
+            .modal-content { padding: 30px 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { padding: 18px 36px; font-size: 18px; }
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="h-inner container">
-        <button id="hamb" aria-label="Mobil menüyü aç">☰</button>
-        <div class="brand">LUXTEK<span>CHILE</span></div>
-        
-        <div id="cart-icon" onclick="go('buy-form')" title="Ver Carrito / Completar Pedido">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span id="cart-count">0</span>
-        </div>
-        <nav id="deskNav" style="display: none;">
-            </nav>
-        
-        </div>
-</header>
-
-<div class="off" id="off">
-    <div class="bg" id="bg"></div>
-    <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="offTitle">
-        <h3 id="offTitle" style="color:#fff;margin:0 0 18px; border-bottom:1px solid #ffffff22; padding-bottom:12px;">LUXTEKCHILE</h3>
-        
-        <a data-lang="home" href="#home"></a>
-        <a data-lang="features" href="#features-intro"></a>
-        <a data-lang="specs" href="#specs"></a>
-        <a data-lang="details" href="#details"></a>
-        <a data-lang="gallery" href="#gallery-section"></a>
-        <a data-lang="reviews" href="#reviews-section"></a>
-        <a data-lang="buy" href="#buy-form"></a>
-        <a data-lang="track_order" href="/track-order" style="color:var(--secondary-accent); border-top: 1px solid #ffffff11; margin-top: 10px; padding-top: 10px;"></a> 
-        
-        <a href="#contact" id="mobile-info" class="desktop-icon-link" aria-label="İletişim Bilgileri" style="color: var(--secondary-accent); padding-top: 10px; border-top: 1px solid #ffffff11;">
-             <i class="fa-solid fa-circle-info" style="margin-right: 10px;"></i> <span data-lang="contact">İletişim</span>
-        </a>
-        <a href="https://wa.me/56973394698" id="mobile-whatsapp" class="desktop-icon-link" target="_blank" aria-label="WhatsApp üzerinden bize ulaşın">
-            <i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> WhatsApp
-        </a>
-        
-        <div class="langs" style="margin-top:24px; padding-top:12px; border-top:1px solid #ffffff22;">
-            <button data-lang-code="es">Español</button>
-            <button data-lang-code="tr">Türkçe</button>
-            <button data-lang-code="en">English</button>
-            <button data-lang-code="ar">العربية</button>
-        </div>
-    </aside>
-</div>
-
-<div id="cart-notification" data-lang="cart_added">¡1 artículo añadido al carrito!</div>
-<section id="home" class="hero">
-    <div class="container hero-content">
-        <h1 data-lang="hero_title">LUXTEK<span>CHILE M10</span></h1>
-        <p data-lang="hero_sub">Libertad y Potencia Inalámbricas. Estuche de Carga con Función Powerbank e Indicador LED.</p>
-        <div class="hero-buttons">
-            <a data-lang="buy_now" href="javascript:void(0)" onclick="addToCart()" class="">Comprar Ahora - $9.990</a> </div>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p style="margin-top: 20px; font-size: 18px;" id="loadingText">Procesando...</p>
     </div>
-</section>
-
-<section id="features-intro" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="features_title">Comodidad de Bolsillo, Sonido Potente</h2>
-        <p class="lead" data-lang="features_text">Luxtekchile M10, ergonomik tasarımı, dijital şarj kutusu ve 5 saatlik kullanım süresiyle günlük kullanım için idealdir.</p>
-    </div>
-</section>
-
-<section id="specs" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="specs_title">Enfoque en la Practicidad del M10</h2>
-        <p class="lead" data-lang="specs_text">Todo lo que necesita para la vida diaria está en este pequeño estuche.</p>
-        <div class="grid">
-            
-            <div class="card" data-delay="0.1"> 
-                
-                <div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div>
-                <h4 data-lang="spec1_title">Pantalla LED de Energía</h4>
-                <p data-lang="spec1_desc">Supervise instantáneamente el nivel de batería de los auriculares y el estuche con la pantalla digital LED en la caja de carga.</p>
-            </div>
-
-            <div class="card" data-delay="0.2"> 
-                
-                <div class="icon-box"><i class="fa-solid fa-circle-nodes"></i></div>
-                <h4 data-lang="spec2_title">Conexión Confiable</h4>
-                <p data-lang="spec2_desc">Conexión inalámbrica estable, de baja latencia y sin interrupciones gracias a la tecnología avanzada Bluetooth 5.3.</p>
-            </div>
-            
-            <div class="card" data-delay="0.3"> 
-                
-                <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
-                <h4 data-lang="spec4_title">Función Powerbank</h4>
-                <p data-lang="spec4_desc">El estuche de carga de alta capacidad se puede utilizar como un powerbank para cargar su teléfono en emergencias.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="details" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="details_title">Ventajas Técnicas</h2>
-        <p class="lead" data-lang="details_text">La superioridad técnica que maximiza el rendimiento diario del Luxtekchile M10.</p>
-        <div class="grid">
-            
-            <div class="card" data-delay="0.1"> 
-                <h4 style="color:var(--accent); font-family: 'Orbitron', sans-serif;">Luxtekchile M10 - TWS Kulaklık</h4> 
-                <p data-lang="detail_product_desc" style="color: #bbb; text-align: left; margin-top: 15px;">M10 combina potentes controladores de audio y Bluetooth 5.3 confiable, ofreciendo un alto rendimiento tanto para música como para llamadas. Garantiza comodidad para el uso prolongado con su estructura ligera y ergonómica.</p>
-                <p style="text-align: left; margin-top: 15px; font-weight: bold; color: var(--secondary-accent);">
-                    <i class="fa-solid fa-headset" style="margin-right: 5px;"></i> Kablosuz Özgürlük, Güçlü Ses
-                </p>
-            </div>
-            
-            <div class="card" data-delay="0.2"> <h4 style="color:var(--accent); text-align: left; font-family: 'Orbitron', sans-serif;" data-lang="detail_tech_title">Especificaciones Técnicas</h4>
-                <ul>
-                    <li data-lang="detail_tech_1"><i class="fa-solid fa-battery-half"></i> Tiempo de Reproducción (Individual): <span>~5 Horas</span></li>
-                    <li data-lang="detail_tech_2"><i class="fa-solid fa-bluetooth-b"></i> Conectividad: <span>Bluetooth 5.3</span></li>
-                    <li data-lang="detail_tech_3"><i class="fa-solid fa-charging-station"></i> Capacidad del Estuche: <span>Función Powerbank</span></li>
-                    <li data-lang="detail_tech_4"><i class="fa-solid fa-volume-high"></i> Diámetro del Conductor: <span>8mm Dinámico</span></li>
-                </ul>
-            </div>
-
-            <div class="card" data-delay="0.3"> <h4 style="color:var(--accent); text-align: left; font-family: 'Orbitron', sans-serif;" data-lang="detail_box_title">Contenido de la Caja</h4>
-                 <ul>
-                    <li data-lang="detail_box_1"><i class="fa-solid fa-earbuds"></i> Auriculares Luxtekchile M10</li>
-                    <li data-lang="detail_box_2"><i class="fa-solid fa-box"></i> Estuche de Carga con Pantalla Digital</li>
-                    <li data-lang="detail_box_3"><i class="fa-solid fa-usb"></i> Cable de Carga USB</li>
-                    <li data-lang="detail_box_4"><i class="fa-solid fa-earbuds"></i> Puntas de Silicona de Diferentes Tamaños</li>
-                </ul>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<section id="gallery-section" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="gallery_title">Galería y Video del Producto</h2>
-        <p class="lead" data-lang="gallery_text">Vea de cerca el diseño y el contenido de la caja del M10.</p>
-        <div class="media-grid">
-            <div class="media-item" data-delay="0.1"> 
-                <img src="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0030-removebg-preview.png" alt="Luxtekchile M10 - Vista frontal de auriculares y estuche">
-            </div>
-            <div class="media-item" data-delay="0.2"> 
-                <img src="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0031-removebg-preview.png" alt="Luxtekchile M10 - Vista de los auriculares en el estuche de carga">
-            </div>
-            <div class="media-item" data-delay="0.3"> 
-                <img src="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0034.jpg" alt="Luxtekchile M10 - Contenido de la caja y accesorios">
-            </div>
-            <div class="media-item video-item" data-delay="0.4"> 
-                <video controls poster="https://raw.githubusercontent.com/vxfch82y59-lab/Luxtek-Chile/refs/heads/main/IMG-20251126-WA0034.jpg">
-                    <source src="https://github.com/vxfch82y59-lab/Luxtek-Chile/raw/refs/heads/main/VID-20251201-WA0000~2.mp4" type="video/mp4">
-                    Su navegador no soporta el elemento de video.
-                </video>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="reviews-section" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="reviews_title">Opiniones de Clientes</h2>
-        <p class="lead" data-lang="reviews_text">Lea las experiencias de los usuarios de Luxtekchile M10.</p>
-        <div class="grid">
-            
-            <div class="review-card" data-delay="0.1"> <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p data-lang="review1_text">La calidad de sonido por este precio es increíble. Especialmente la función de soporte para teléfono del estuche de carga es muy útil. Genial para el uso diario.</p>
-                <strong data-lang="review1_author">Pedro L. - Santiago</strong>
-            </div>
-
-            <div class="review-card" data-delay="0.2"> <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-                <p data-lang="review2_text">La conexión es muy rápida y estable. La función powerbank me salvó cuando la batería de mi teléfono se agotó. Lo recomiendo mucho.</p>
-                <strong data-lang="review2_author">Ana S. - Valparaíso</strong>
-            </div>
-
-            <div class="review-card" data-delay="0.3"> <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p data-lang="review3_text">Los auriculares se ajustan muy bien al oído y son cómodos para un uso prolongado. Solo desearía que los bajos fueran un poco más profundos.</p>
-                <strong data-lang="review3_author">Carlos M. - Concepción</strong>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-
-<section id="buy-form" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="buy_title">Complete su Pedido y Pago</h2>
-        <p class="lead" data-lang="buy_reply">Aşağıdaki formu doldurarak Luxtekchile M10'u hemen sipariş edebilir ve ödemeye geçebilirsiniz. **Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır.** Ödemenizden hemen sonra siparişiniz işleme alınacaktır. **Nota: ¡Solo quedan 30 unidades en stock!**</p>
-        
-        <div class="card contact-form" style="max-width: 600px; margin: 30px auto; background: #2a2a47; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);"> 
-            <form id="quote-form">
-                <input type="text" name="name" data-lang="form_name" placeholder="Su Nombre Completo" required>
-                <input type="email" name="email" data-lang="form_email" placeholder="Su Correo Electrónico" required>
-                <input type="text" name="phone" data-lang="form_phone" placeholder="Teléfono (con Código de País)" required>
-                
-                <input type="hidden" name="product_interest" value="Luxtekchile M10 TWS Headset">
-                
-                <select name="color_option" required>
-                    <option value="" disabled selected data-lang="form_color_select">Seleccionar Color</option>
-                    <option data-lang="color_1" value="Black">Negro</option>
-                </select>
-                
-                <select name="courier_option" required>
-                    <option value="" disabled selected data-lang="form_courier_select">Seleccionar Transportista</option>
-                    <option data-lang="courier_1" value="Chilexpress">Chilexpress</option>
-                    <option data-lang="courier_2" value="Correos de Chile">Correos de Chile</option>
-                    <option data-lang="courier_3" value="Starken">Starken</option>
-                </select>
-
-                <textarea name="requirements" data-lang="form_message" placeholder="Su Dirección, Región y Notas Adicionales" required></textarea>
-                
-                <div style="text-align: center; margin-bottom: 15px; font-weight: bold; color: var(--accent);">
-                    <span data-lang="total_price_label">Precio Total:</span> <span id="total-price">$0</span> 
+    
+    <div class="toast" id="toast"></div>
+    
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <h2>🛒 Datos de Envío</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Nombre Completo *</label>
+                    <input type="text" id="nombre" required placeholder="Juan Pérez" maxlength="100">
+                    <span class="error">Por favor ingresa tu nombre completo</span>
                 </div>
                 
-                <button type="submit" data-lang="form_send">Proceder al Pago (Simulación)</button>
-                
-                <div class="payment-trust-badges">
-                    <i class="fa-solid fa-shield-halved" title="Pago Seguro"></i>
-                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
-                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fa-brands fa-cc-amex" title="Amex"></i>
-                    <i class="fa-solid fa-lock" title="SSL Seguro"></i>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="email" required placeholder="correo@ejemplo.com" maxlength="100">
+                    <span class="error">Por favor ingresa un email válido</span>
                 </div>
                 
+                <div class="form-group">
+                    <label>Teléfono *</label>
+                    <input type="tel" id="telefono" required placeholder="+56912345678" maxlength="20">
+                    <span class="error">Formato: +56912345678</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dirección Completa *</label>
+                    <input type="text" id="direccion" required placeholder="Calle 123, Depto 456" maxlength="200">
+                    <span class="error">Por favor ingresa tu dirección</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Comuna *</label>
+                    <input type="text" id="comuna" required placeholder="Santiago Centro" maxlength="100">
+                    <span class="error">Por favor ingresa tu comuna</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Región *</label>
+                    <select id="region" required>
+                        <option value="">Selecciona tu región</option>
+                        <option value="Metropolitana">Región Metropolitana</option>
+                        <option value="Valparaíso">Valparaíso</option>
+                        <option value="Bío Bío">Bío Bío</option>
+                        <option value="Araucanía">Araucanía</option>
+                        <option value="Los Lagos">Los Lagos</option>
+                        <option value="Maule">Maule</option>
+                        <option value="Antofagasta">Antofagasta</option>
+                        <option value="Coquimbo">Coquimbo</option>
+                        <option value="O'Higgins">O'Higgins</option>
+                        <option value="Tarapacá">Tarapacá</option>
+                        <option value="Atacama">Atacama</option>
+                        <option value="Aysén">Aysén</option>
+                        <option value="Magallanes">Magallanes</option>
+                        <option value="Arica y Parinacota">Arica y Parinacota</option>
+                        <option value="Los Ríos">Los Ríos</option>
+                        <option value="Ñuble">Ñuble</option>
+                    </select>
+                    <span class="error">Por favor selecciona tu región</span>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="closeCheckout()" style="flex: 1;">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn" style="flex: 1;">
+                        <i class="fas fa-credit-card"></i> Continuar
+                    </button>
+                </div>
             </form>
-            <div id="form-message" style="margin-top: 20px; font-weight: 700; display: none; text-align: center;"></div>
         </div>
-        
-        <div id="track-order-box" class="card">
-            <h4 data-lang="track_title">Rastreo de Pedidos</h4>
-            <select id="courier-select" required>
-                <option value="" disabled selected data-lang="track_courier_select">Seleccionar Transportista</option>
-                <option value="Chilexpress">Chilexpress</option>
-                <option value="Correos de Chile">Correos de Chile</option>
-                <option value="Starken">Starken</option>
-            </select>
-            <input type="text" id="tracking-number" data-lang="track_placeholder" placeholder="Ej: CHX123456789"> 
-            <button type="button" id="track-button" data-lang="track_button">Consultar mi Envío</button>
-            <div id="tracking-message" style="margin-top: 15px; font-weight: 700; color: var(--accent); display: none;"></div>
-        </div>
-        </div>
-</section>
-
-<section id="contact" class="section">
-    <div class="container">
-        <h2 class="title" data-lang="contact_title">Contacto</h2>
-        <div class="grid">
-            <div class="card contact-info" style="max-width: 400px; margin: 0 auto; background: #1c1c38; border: 1px solid rgba(0, 191, 255, 0.1); padding: 30px; border-radius: 10px; text-align: left;"> <p><i class="fa-brands fa-whatsapp" style="color: #25D366; margin-right: 10px;"></i><strong data-lang="whatsapp">Whatsapp:</strong> +56 97339 4698</p> 
-                <p><i class="fa-solid fa-envelope" style="color: var(--secondary-accent); margin-right: 10px;"></i><strong data-lang="email">E-mail:</strong> luxtekchile@gmail.com</p> 
-                <p><i class="fa-solid fa-location-dot" style="color: var(--accent); margin-right: 10px;"></i><strong data-lang="location">Ubicación:</strong> Curicó, Chile</p>
-            </div>
-            </div>
     </div>
-</section>
-
-<footer>
-    © <span id="year">2025</span> Luxtekchile
-</footer>
-
-<a href="https://wa.me/56973394698" id="whatsapp-fixed" target="_blank" aria-label="WhatsApp üzerinden bize ulaşın">
-    <i class="fa-brands fa-whatsapp"></i> <span data-lang="whatsapp_chat">Soporte WhatsApp</span>
-</a>
-
-
-<script>
-    /* === CARRITO (AÑADIDO) === */
-    let cartCount = 0;
-    const unitPrice = 9990;
     
-    function formatPrice(price) {
-        // Şili para birimi formatı: $X.XXX
-        return `$${price.toLocaleString('es-CL')}`;
-    }
-
-    function updateCartDisplay(){
-        document.getElementById('cart-count').textContent = cartCount;
-        const icon = document.getElementById('cart-icon');
-        icon.style.color = cartCount > 0 ? 'var(--accent)' : 'var(--secondary-accent)';
-        
-        const totalPrice = cartCount * unitPrice;
-        const priceElement = document.getElementById('total-price');
-        if (priceElement) {
-             priceElement.textContent = formatPrice(totalPrice);
-        }
-    }
-
-    function addToCart() {
-        cartCount++;
-        updateCartDisplay();
-        
-        const currentLang = localStorage.getItem('site-lang') || 'es';
-        const notification = document.getElementById('cart-notification');
-        const langCode = translations[currentLang] ? currentLang : 'es';
-        
-        let message = translations[langCode].cart_added.replace('{count}', cartCount);
-        
-        notification.textContent = message;
-        notification.classList.add('show');
-        
-        // Ocultar después de 3 segundos
-        clearTimeout(notification.timer);
-        notification.timer = setTimeout(() => {
-            notification.classList.remove('show');
-        }, 3000);
-        
-        // Sepete ekledikten sonra scroll yap
-        go('buy-form');
-    }
-    /* ========================= */
+    <header>
+        <div class="logo">
+            <i class="fas fa-headphones-alt"></i> LuxTekChile
+        </div>
+    </header>
     
-    /* Yılın Otomatik Olarak Güncellenmesi */
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    /* MENU open/close (toggle) */
-    const off = document.getElementById('off');
-    const hamb = document.getElementById('hamb');
-    const bg = document.getElementById('bg');
-
-    function toggleMenu(){
-        off.classList.toggle('show');
-        document.body.style.overflow = off.classList.contains('show') ? 'hidden' : '';
-    }
-    hamb.addEventListener('click', toggleMenu);
-    bg.addEventListener('click', ()=>{ off.classList.remove('show'); document.body.style.overflow=''; });
-    window.addEventListener('keydown', e=>{ if(e.key === 'Escape') { off.classList.remove('show'); document.body.style.overflow=''; } });
-
-    /* REVEAL (GSAP ScrollTrigger ile animasyon) - Fonksiyon Kaldırıldı */
-    function initReveal(){
-        // Animasyonlar kaldırıldığı için bu fonksiyonun içeriği boş bırakılmıştır.
-    }
-    window.addEventListener('load', initReveal); 
-
-    /* SMOOTH SCROLL helper */
-    function go(id){
-        if(id && id.startsWith('/')){ 
-             window.location.href = id; 
-             return; 
-        }
-
-        const el = document.getElementById(id);
-        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        
-        if(off.classList.contains('show')) {
-            off.classList.remove('show');
-            document.body.style.overflow='';
-        }
-    }
-
-    /* SIMPLE I18N - TÜM DİLLER VE ÜRÜN DETAYLARI BURADA */
-    const translations = {
-        tr:{
-            home:"Ana Sayfa",features:"Özellikler",specs:"Avantajlar",details:"Teknik Detaylar",buy:"Hemen Al",contact:"İletişim",whatsapp:"Whatsapp:",location:"Konum:",phone:"Telefon:",email:"E-posta:",
-            track_order:"Kargo Takip", 
-            gallery:"Galeri", 
-            reviews:"Müşteri Yorumları", 
-            whatsapp_chat: "WhatsApp Destek", 
-            cart_added: "Sepete {count} ürün eklendi!", 
-            total_price_label: "Toplam Fiyat:",
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Auriculares <span class="hero-highlight">M10 TWS</span><br>
+                Bluetooth 5.3 Premium
+            </h1>
             
-            hero_title:"LUXTEK<span>CHILE M10</span>", 
-            hero_sub:"Kablosuz Özgürlük ve Güç. LED Göstergeli Powerbank Özellikli Şarj Kutusu.", 
-            buy_now:"Şimdi Satın Al - $9.990", 
+            <p>
+                Sonido HiFi de alta fidelidad con tecnología Bluetooth 5.3,
+                cancelación de ruido y hasta 30 horas de batería.
+            </p>
             
-            features_title:"Cepte Kolaylık, Güçlü Ses", 
-            features_text:"Luxtekchile M10, ergonomik tasarımı, dijital şarj kutusu ve 2-3 saat kulaklık, 5 saat kutu kullanım süresiyle günlük kullanım için idealdir.", 
+            <div class="hero-price">
+                <small style="font-size: 32px;">CLP</small> $5.990
+            </div>
             
-            specs_title:"M10'un Pratikliğine Odaklan", 
-            specs_text:"Günlük hayatta ihtiyacınız olan her şey bu küçük kutuda.", 
-            spec1_title:"LED Güç Göstergesi", 
-            spec1_desc:"Şarj kutusu üzerindeki dijital LED ekran ile kulaklık ve kutu pil seviyesini anlık takip edin.", 
-            spec2_title:"Güvenilir Bağlantı", 
-            spec2_desc:"Gelişmiş Bluetooth 5.3 teknolojisi sayesinde kesintisiz, düşük gecikmeli ve stabil kablosuz bağlantı.", 
-            spec4_title:"Powerbank Fonksiyonu", 
-            spec4_desc:"Yüksek kapasiteli şarj kutusu, acil durumlarda telefonunuzu şarj etmek için powerbank olarak kullanılabilir.", 
-
-            details_title:"Teknik Avantajlar", 
-            details_text:"Luxtekchile M10'un günlük performansı maksimize eden teknik üstünlükleri.", 
-            detail_product_desc: "M10, güçlü ses sürücüleri ve güvenilir Bluetooth 5.3 ile hem müzik hem de telefon görüşmelerinde yüksek performans sunar. Hafif ve ergonomik yapısıyla uzun süreli kullanımlarda rahatlık sağlar.", 
-            detail_tech_title:"Teknik Özellikler",
-            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> Kulaklık Pil Ömrü (Tek): <span>~2-3 Saat</span>', 
-            detail_tech_2:'<i class="fa-solid fa-bluetooth-b"></i> Bağlantı: <span>Bluetooth 5.3</span>', 
-            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> Kutu Kullanım Süresi: <span>~5 Saat</span>', // Güncellendi
-            detail_tech_4:'<i class="fa-solid fa-volume-high"></i> Sürücü Çapı: <span>8mm Dinamik</span>', 
-            detail_box_title:"Kutu İçeriği",
-            detail_box_1:'<i class="fa-solid fa-earbuds"></i> Luxtekchile M10 Kulaklık Seti', 
-            detail_box_2:'<i class="fa-solid fa-box"></i> Dijital Ekranlı Şarj Kutusu', 
-            detail_box_3:'<i class="fa-solid fa-usb"></i> USB Şarj Kablosu', 
-            detail_box_4:'<i class="fa-solid fa-earbuds"></i> Farklı Boyutlarda Silikon Uçlar', 
+            <div class="stock-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="stockText">Cargando stock...</span>
+            </div>
             
-            gallery_title:"Ürün Galeri ve Videosu", 
-            gallery_text:"M10'un tasarımını ve kutu içeriğini yakından inceleyin.", 
-            
-            reviews_title: "Müşteri Yorumları", 
-            reviews_text: "Luxtekchile M10 kullanıcılarının deneyimlerini okuyun.", 
-            review1_text: "Ses kalitesi bu fiyata göre inanılmaz. Özellikle şarj kutusunun telefon tutucu olması çok işime yaradı. Günlük kullanım için harika.", 
-            review1_author: "Pedro L. - Santiago", 
-            review2_text: "Bağlantı çok hızlı ve stabil. Powerbank özelliği sayesinde telefonumun şarjı bittiğinde kurtarıcı oldu. Tavsiye ederim.", 
-            review2_author: "Ana S. - Valparaíso", 
-            review3_text: "Kulaklıklar kulağa çok iyi oturuyor ve uzun kullanımlarda rahatsız etmiyor. Sadece baslar biraz daha derin olabilirdi.", 
-            review3_author: "Carlos M. - Concepción", 
-
-            buy_title:"Siparişinizi Tamamlayın ve Ödeme", 
-            buy_reply:"Aşağıdaki formu doldurarak Luxtekchile M10'u hemen sipariş edebilir ve ödemeye geçebilirsiniz. Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır. Ödemenizden hemen sonra siparişiniz işleme alınacaktır. Not: Stokta sadece 30 adet kulaklık kalmıştır!", // Yıldız kaldırıldı
-            form_name:"Adınız Soyadınız", form_email:"E-posta Adresiniz", form_phone:"Telefon (Ülke Kodu ile)",
-            form_color_select:"Renk Seçin", color_1:"Siyah", 
-            form_courier_select: "Kargo Şirketi Seçin", 
-            courier_1: "Chilexpress", 
-            courier_2: "Correos de Chile", 
-            courier_3: "Starken",
-            form_message:"Adres, Bölge ve Ek Notlarınız", 
-            form_send:"Ödemeye Geç (Simülasyon)",
-            form_success:"Tebrikler! Siparişiniz başarıyla tamamlandı (Simülasyon). Ödemeniz alındı ve kargo hazırlık süreciniz başladı. Takip numaranızı e-posta ile alacaksınız.", 
-            form_error_empty: "Sepetiniz boş. Lütfen sipariş vermeden önce ürünü sepete ekleyin.",
-            form_error:"Üzgünüz, bir sorun oluştu. Lütfen bilgileri doğru girdiğinizden emin olun ve tekrar deneyin.", 
-            
-            // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Kargo Takibi (Şili Şirketleri Simülasyonu)",
-            track_courier_select: "Kargo Şirketi Seçin",
-            track_placeholder: "Takip Numarası Girin",
-            track_button: "Kargomu Sorgula",
-            tracking_status_not_found: "Belirtilen takip numarasına ait kargo bilgisi bulunamadı.",
-            tracking_status_success: "Kargonuz {status} durumundadır. Tahmini teslimat: {date}.",
-            tracking_status_processing: "Kargonuz hazırlanıyor ve işleniyor.",
-            tracking_status_shipped: "Kargonuz kargoya verildi ve yolda.",
-            tracking_status_delivered: "Kargonuz başarıyla teslim edildi.",
-
-        },
-        en:{
-            home:"Home",features:"Features",specs:"Advantages",details:"Technical Details",buy:"Buy Now",contact:"Contact",whatsapp:"Whatsapp:",location:"Location:",phone:"Phone:",email:"Email:",
-            track_order:"Track Order",
-            gallery:"Gallery",
-            reviews:"Customer Reviews",
-            whatsapp_chat: "WhatsApp Support",
-            cart_added: "{count} item(s) added to cart!", 
-            total_price_label: "Total Price:",
-            
-            hero_title:"LUXTEK<span>CHILE M10</span>", 
-            hero_sub:"Wireless Freedom and Power. Powerbank Feature Charging Case with LED Indicator.", 
-            buy_now:"Buy Now - $9.990", 
-            
-            features_title:"Pocket Convenience, Powerful Sound",
-            features_text:"Luxtekchile M10 is ideal for daily use with its ergonomic design, digital charging case, and up to 5 hours of playtime.",
-            
-            specs_title:"Focus on M10's Practicality",
-            specs_text:"Everything you need for daily life is in this small case.",
-            spec1_title:"LED Power Display",
-            spec1_desc:"Monitor the battery level of the earbuds and case instantly with the digital LED screen on the charging box.",
-            spec2_title:"Reliable Connection",
-            spec2_desc:"Seamless, low-latency, and stable wireless connection thanks to advanced Bluetooth 5.3 technology.",
-            spec4_title:"Powerbank Function",
-            spec4_desc:"The high-capacity charging case can be used as a powerbank to charge your phone in emergencies.",
-
-            details_title:"Technical Advantages",
-            details_text:"The technical superiority that maximizes Luxtekchile M10's daily performance.",
-            detail_product_desc: "M10 combines powerful audio drivers and reliable Bluetooth 5.3, offering high performance for both music and calls. It ensures comfort for long-term use with its light and ergonomic structure.",
-            detail_tech_title:"Technical Specs",
-            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> Playtime (Single): <span>~5 Hours</span>',
-            detail_tech_2:'<i class="fa-solid fa-bluetooth-b"></i> Connectivity: <span>Bluetooth 5.3</span>',
-            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> Case Capacity: <span>Powerbank Feature</span>',
-            detail_tech_4:'<i class="fa-solid fa-volume-high"></i> Driver Diameter: <span>8mm Dynamic</span>',
-            detail_box_title:"What's in the Box",
-            detail_box_1:'<i class="fa-solid fa-earbuds"></i> Luxtekchile M10 Earbud Set',
-            detail_box_2:'<i class="fa-solid fa-box"></i> Digital Display Charging Case',
-            detail_box_3:'<i class="fa-solid fa-usb"></i> USB Charging Cable',
-            detail_box_4:'<i class="fa-solid fa-earbuds"></i> Different Sized Silicone Tips',
-            
-            gallery_title:"Product Gallery and Video",
-            gallery_text:"Take a closer look at the M10's design and box contents.",
-            
-            reviews_title: "Customer Reviews",
-            reviews_text: "Read about the experiences of Luxtekchile M10 users.",
-            review1_text: "The sound quality for this price is incredible. Especially the phone holder feature of the charging case is very useful. Great for daily use.",
-            review1_author: "Pedro L. - Santiago", 
-            review2_text: "Connection is very fast and stable. The powerbank feature saved me when my phone battery died. Highly recommend.",
-            review2_author: "Ana S. - Valparaíso", 
-            review3_text: "The earbuds fit in the ear very well and are comfortable for long use. Just wish the bass was a little deeper.",
-            review3_author: "Carlos M. - Concepción", 
-
-            buy_title:"Complete Your Order and Payment",
-            buy_reply:"You can order the Luxtekchile M10 immediately by filling out the form below and proceeding to payment. **Warranty: Only valid against factory defects caused by manufacturing. User errors, drops, liquid contact, etc., are outside the warranty scope.** Your order will be processed immediately after payment. **Note: Only 30 units remain in stock!**", 
-            form_name:"Your Full Name", form_email:"Your Email Address", form_phone:"Phone (with Country Code)",
-            form_color_select:"Select Color", color_1:"Black",
-            form_courier_select: "Select Courier",
-            courier_1: "Chilexpress",
-            courier_2: "Correos de Chile",
-            courier_3: "Starken",
-            form_message:"Your Address, Region, and Additional Notes",
-            form_send:"Proceed to Payment (Simulation)",
-            form_success:"Congratulations! Your order has been successfully completed (Simulation). Your payment has been received, and your shipping preparation process has begun. You will receive your tracking number by email.",
-            form_error_empty: "Your cart is empty. Please add the product before completing the order.",
-            form_error:"Sorry, an issue occurred. Please ensure your information is correct and try again.",
-            
-            // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Track Your Order (Chilean Couriers Simulation)",
-            track_courier_select: "Select Courier",
-            track_placeholder: "Enter Tracking Number",
-            track_button: "Query My Shipment",
-            tracking_status_not_found: "No shipping information found for the specified tracking number.",
-            tracking_status_success: "Your shipment is **{status}**. Estimated delivery: {date}.",
-            tracking_status_processing: "Your shipment is being prepared and processed.",
-            tracking_status_shipped: "Your shipment has been dispatched and is on the way.",
-            tracking_status_delivered: "Your shipment has been successfully delivered.",
-        },
-        es:{
-            home:"Inicio",features:"Características",specs:"Ventajas",details:"Detalles Técnicos",buy:"Comprar Ahora",contact:"Contacto",whatsapp:"Whatsapp:",location:"Ubicación:",phone:"Teléfono:",email:"Correo:",
-            track_order:"Rastrear Pedido",
-            gallery:"Galería",
-            reviews:"Opiniones de Clientes",
-            whatsapp_chat: "Soporte WhatsApp",
-            cart_added: "¡{count} artículo(s) añadido(s) al carrito!", 
-            total_price_label: "Precio Total:",
-            
-            hero_title:"LUXTEK<span>CHILE M10</span>", 
-            hero_sub:"Libertad y Potencia Inalámbricas. Estuche de Carga con Función Powerbank e Indicador LED.", 
-            buy_now:"Añadir al Carrito - $9.990", 
-            
-            features_title:"Comodidad de Bolsillo, Sonido Potente",
-            features_text:"Luxtekchile M10 es ideal para el uso diario con su diseño ergonómico, estuche de carga digital y hasta 5 horas de reproducción.",
-            
-            specs_title:"Enfoque en la Practicidad del M10",
-            specs_text:"Todo lo que necesita para la vida diaria está en este pequeño estuche.",
-            spec1_title:"Pantalla LED de Energía",
-            spec1_desc:"Supervise instantáneamente el nivel de batería de los auriculares y el estuche con la pantalla digital LED en la caja de carga.",
-            spec2_title:"Conexión Confiable",
-            spec2_desc:"Conexión inalámbrica estable, de baja latencia y sin interrupciones gracias a la tecnología avanzada Bluetooth 5.3.",
-            spec4_title:"Función Powerbank",
-            spec4_desc:"El estuche de carga de alta capacidad se puede utilizar como un powerbank para cargar su teléfono en emergencias.",
-
-            details_title:"Ventajas Técnicas",
-            details_text:"La superioridad técnica que maximiza el rendimiento diario del Luxtekchile M10.",
-            detail_product_desc: "M10 combina potentes controladores de audio y Bluetooth 5.3 confiable, ofreciendo un alto rendimiento tanto para música como para llamadas. Garantiza comodidad para el uso prolongado con su estructura ligera y ergonómica.",
-            detail_tech_title:"Especificaciones Técnicas",
-            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> Tiempo de Reproducción (Individual): <span>~5 Horas</span>',
-            detail_tech_2:'<i class="fa-solid fa-bluetooth-b"></i> Conectividad: <span>Bluetooth 5.3</span>',
-            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> Capacidad del Estuche: <span>Función Powerbank</span>',
-            detail_tech_4:'<i class="fa-solid fa-volume-high"></i> Diámetro del Conductor: <span>8mm Dinámico</span>',
-            detail_box_title:"Contenido de la Caja",
-            detail_box_1:'<i class="fa-solid fa-earbuds"></i> Auriculares Luxtekchile M10',
-            detail_box_2:'<i class="fa-solid fa-box"></i> Estuche de Carga con Pantalla Digital',
-            detail_box_3:'<i class="fa-solid fa-usb"></i> Cable de Carga USB',
-            detail_box_4:'<i class="fa-solid fa-earbuds"></i> Puntas de Silicona de Diferentes Tamaños',
-            
-            gallery_title:"Galería y Video del Producto",
-            gallery_text:"Vea de cerca el diseño y el contenido de la caja del M10.",
-            
-            reviews_title: "Opiniones de Clientes",
-            reviews_text: "Lea las experiencias de los usuarios de Luxtekchile M10.",
-            review1_text: "La calidad de sonido por este precio es increíble. Especialmente la función de soporte para teléfono del estuche de carga es muy útil. Genial para el uso diario.",
-            review1_author: "Pedro L. - Santiago", 
-            review2_text: "La conexión es muy rápida y estable. La función powerbank me salvó cuando la batería de mi teléfono se agotó. Lo recomiendo mucho.",
-            review2_author: "Ana S. - Valparaíso", 
-            review3_text: "Los auriculares se ajustan muy bien al oído y son cómodos para un uso prolongado. Solo desearía que los bajos fueran un poco más profundos.",
-            review3_author: "Carlos M. - Concepción", 
-
-            buy_title:"Complete su Pedido y Pago",
-            buy_reply:"Puede ordenar el Luxtekchile M10 inmediatamente completando el formulario a continuación y procediendo al pago. **Garanti: Yalnızca üretimden kaynaklanan fabrika hatalarına karşı geçerlidir. Kullanıcı hatası, düşme, sıvı teması vb. durumlar garanti kapsamı dışındadır.** Ödemenizden hemen sonra siparişiniz işleme alınacaktır. **Nota: ¡Solo quedan 30 unidades en stock!**", 
-            form_name:"Su Nombre Completo", form_email:"Su Correo Electrónico", form_phone:"Teléfono (con Código de País)",
-            form_color_select:"Seleccionar Color", color_1:"Negro",
-            form_courier_select: "Seleccionar Transportista",
-            courier_1: "Chilexpress",
-            courier_2: "Correos de Chile",
-            courier_3: "Starken",
-            form_message:"Su Dirección, Región y Notas Adicionales",
-            form_send:"Proceder al Pago (Simulación)",
-            form_success:"¡Felicidades! Su pedido ha sido completado con éxito (Simulación). Su pago ha sido recibido y su proceso de preparación de envío ha comenzado. Recibirá su número de seguimiento por correo electrónico.",
-            form_error_empty: "El carrito está vacío. Por favor, añada el producto antes de completar el pedido.",
-            form_error:"Lo sentimos, ha ocurrido un problema. Por favor, asegúrese de que su información sea correcta e inténtelo de nuevo.",
-            
-            // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "Rastreo de Pedidos (Simulación de Transportistas Chilenos)",
-            track_courier_select: "Seleccionar Transportista",
-            track_placeholder: "Ingresar Número de Seguimiento",
-            track_button: "Consultar mi Envío",
-            tracking_status_not_found: "No se encontró información de envío para el número de seguimiento especificado.",
-            tracking_status_success: "Su envío está en estado **{status}**. Entrega estimada: {date}.",
-            tracking_status_processing: "Su envío se está preparando/procesando.",
-            tracking_status_shipped: "Su envío ha sido despachado y está en camino.",
-            tracking_status_delivered: "Su envío ha sido entregado con éxito.",
-        },
-        ar:{
-            home:"الرئيسية",features:"الميزات",specs:"المزايا",details:"التفاصيل الفنية",buy:"اشترِ الآن",contact:"اتصال",whatsapp:"واتساب:",location:"الموقع:",phone:"الهاتف:",email:"البريد الإلكتروني:",
-            track_order:"تتبع الطلب",
-            gallery:"المعرض",
-            reviews:"تقييمات العملاء",
-            whatsapp_chat: "دعم واتساب",
-            cart_added: "تمت إضافة {count} عنصر(ة) إلى السلة!", 
-            total_price_label: "السعر الإجمالي:",
-            
-            hero_title:"لوكس تيك تشيلي <span>M10</span>", 
-            hero_sub:"حرية وقوة لاسلكية. علبة شحن بخاصية Powerbank ومؤشر LED.", 
-            buy_now:"أضف إلى السلة - 9.990 دولار", 
-            
-            features_title:"راحة الجيب، صوت قوي",
-            features_text:"تعتبر Luxtekchile M10 مثالية للاستخدام اليومي بتصميمها المريح وعلبة الشحن الرقمية ووقت التشغيل الذي يصل إلى 5 ساعات.",
-            
-            specs_title:"ركز على عملية M10",
-            specs_text:"كل ما تحتاجه للحياة اليومية موجود في هذه العلبة الصغيرة.",
-            spec1_title:"شاشة LED للطاقة",
-            spec1_desc:"راقب مستوى بطارية السماعات والعلبة على الفور بفضل شاشة LED الرقمية الموجودة على علبة الشحن.",
-            spec2_title:"اتصال موثوق",
-            spec2_desc:"اتصال لاسلكي سلس ومنخفض الكمون ومستقر بفضل تقنية بلوتوث 5.3 المتقدمة.",
-            spec4_title:"وظيفة Powerbank",
-            spec4_desc:"يمكن استخدام علبة الشحن ذات السعة العالية كباوربانك لشحن هاتفك في حالات الطوارئ.",
-
-            details_title:"المزايا الفنية",
-            details_text:"التفوق التقني الذي يزيد من الأداء اليومي لسماعة Luxtekchile M10.",
-            detail_product_desc: "تجمع M10 بين محركات الصوت القوية وبلوتوث 5.3 الموثوق به، مما يوفر أداءً عالياً للموسيقى والمكالمات. يضمن الراحة للاستخدام طويل الأمد بفضل هيكله الخفيف والمريح.",
-            detail_tech_title:"المواصفات الفنية",
-            detail_tech_1:'<i class="fa-solid fa-battery-half"></i> وقت التشغيل (فردي): <span>~5 ساعات</span>',
-            detail_tech_2:'<i class="fa-solid fa-bluetooth-b"></i> الاتصال: <span>بلوتوث 5.3</span>',
-            detail_tech_3:'<i class="fa-solid fa-charging-station"></i> سعة العلبة: <span>خاصية Powerbank</span>',
-            detail_tech_4:'<i class="fa-solid fa-volume-high"></i> قطر المحرك: <span>8 مم ديناميكي</span>',
-            detail_box_title:"ماذا يوجد في العلبة",
-            detail_box_1:'<i class="fa-solid fa-earbuds"></i> سماعات Luxtekchile M10',
-            detail_box_2:'<i class="fa-solid fa-box"></i> علبة شحن بشاشة رقمية',
-            detail_box_3:'<i class="fa-solid fa-usb"></i> كابل شحن USB',
-            detail_box_4:'<i class="fa-solid fa-earbuds"></i> أطراف سيليكون بأحجام مختلفة',
-            
-            gallery_title:"معرض المنتج والفيديو",
-            gallery_text:"ألقِ نظرة فاحصة على تصميم M10 ومحتويات العلبة.",
-            
-            reviews_title: "تقييمات العملاء",
-            reviews_text: "اقرأ عن تجارب مستخدمي Luxtekchile M10.",
-            review1_text: "جودة الصوت بهذا السعر مذهلة. خاصة ميزة حامل الهاتف في علبة الشحن مفيدة جداً. رائعة للاستخدام اليومي.",
-            review1_author: "بيدرو ل. - سانتياغو",
-            review2_text: "الاتصال سريع ومستقر جداً. ميزة Powerbank أنقذتني عندما نفدت بطارية هاتفي. أوصي بها بشدة.",
-            review2_author: "آنا س. - فالبارايسو",
-            review3_text: "تثبت السماعات في الأذن بشكل جيد ومريحة للاستخدام الطويل. أتمنى فقط أن تكون الأصوات الجهورية أعمق قليلاً.",
-            review3_author: "كارلوس م. - كونسبسيون",
-
-            buy_title:"أكمل طلبك والدفع",
-            buy_reply:"يمكنك طلب Luxtekchile M10 فوراً عن طريق ملء النموذج أدناه والمتابعة للدفع. **الضمان: صالح فقط ضد عيوب المصنع الناتجة عن التصنيع. أخطاء المستخدم، السقوط، ملامسة السوائل، وما إلى ذلك، تخرج عن نطاق الضمان.** ستتم معالجة طلبك فوراً بعد الدفع. **ملاحظة: تبقى 30 وحدة فقط في المخزون!**", 
-            form_name:"اسمك الكامل", form_email:"عنوان بريدك الإلكتروني", form_phone:"الهاتف (مع رمز البلد)",
-            form_color_select:"اختر اللون", color_1:"أسود",
-            form_courier_select: "اختر شركة الشحن",
-            courier_1: "Chilexpress",
-            courier_2: "Correos de Chile",
-            courier_3: "Starken",
-            form_message:"عنوانك والمنطقة والملاحظات الإضافية",
-            form_send:"المتابعة للدفع (محاكاة)",
-            form_success:"تهانينا! لقد تم إكمال طلبك بنجاح (محاكاة). تم استلام دفعتك وبدأت عملية تجهيز شحنتك. ستتلقى رقم التتبع عبر البريد الإلكتروني.",
-            form_error_empty: "سلتك فارغة. يرجى إضافة المنتج قبل إكمال الطلب.",
-            form_error:"نأسف، حدث خطأ. يرجى التأكد من صحة معلوماتك والمحاولة مرة أخرى.",
-
-            // YENİ KARGO TAKİP ÇEVİRİLERİ
-            track_title: "تتبع شحنتك (محاكاة شركات الشحن التشيلية)",
-            track_courier_select: "اختر شركة الشحن",
-            track_placeholder: "أدخل رقم التتبع",
-            track_button: "الاستعلام عن شحنتي",
-            tracking_status_not_found: "لم يتم العثور على معلومات شحن لرقم التتبع المحدد.",
-            tracking_status_success: "شحنتك في حالة **{status}**. التسليم المتوقع: {date}.",
-            tracking_status_processing: "شحنتك قيد الإعداد والمعالجة.",
-            tracking_status_shipped: "تم شحن بضاعتكم وهي في الطريق.",
-            tracking_status_delivered: "تم تسليم شحنتك بنجاح.",
-        }
-    };
-
-    /* Dil Uygulama Fonksiyonu */
-    function applyLang(){
-        const L = localStorage.getItem('site-lang') || 'es'; 
-        document.documentElement.lang = L; 
-        document.documentElement.dir = (L==='ar') ? 'rtl' : 'ltr';
-        
-        document.querySelectorAll('[data-lang]').forEach(el=>{
-            const key = el.getAttribute('data-lang');
-            if(key && translations[L] && translations[L][key] !== undefined){
-                const translation = translations[L][key];
-                
-                if (key === 'buy_now') {
-                    el.textContent = translation; 
-                }
-                else if (el.tagName === 'INPUT' && (el.getAttribute('type') === 'text' || el.getAttribute('type') === 'email')) {
-                    if(key.startsWith('form_') || key.startsWith('track_')) {
-                        el.placeholder = translation;
-                    } else {
-                        el.value = translation;
-                    }
-                } else if (el.tagName === 'TEXTAREA') {
-                    if (key === 'form_message') {
-                         el.placeholder = translation;
-                    } else {
-                         el.innerHTML = translation;
-                    }
-                } else if (el.tagName === 'OPTION') {
-                    el.textContent = translation;
-                } else if (el.tagName === 'BUTTON') {
-                     el.textContent = translation;
-                }
-                else {
-                    el.innerHTML = translation;
-                }
-            } 
-        });
-        document.querySelectorAll('[data-lang-code]').forEach(b=> b.classList.toggle('sel', b.getAttribute('data-lang-code')===L));
-        
-        // Kargo Takip Select ve Form Select Güncellemeleri
-        document.getElementById('courier-select').querySelector('option[disabled]').textContent = translations[L].track_courier_select;
-        document.querySelector('select[name="courier_option"]').querySelector('option[disabled]').textContent = translations[L].form_courier_select;
-        
-        const messageDiv = document.getElementById('form-message');
-        if (messageDiv) {
-            messageDiv.style.display = 'none';
-            messageDiv.textContent = '';
-        }
-        const trackMessageDiv = document.getElementById('tracking-message');
-        if (trackMessageDiv) {
-            trackMessageDiv.style.display = 'none';
-            trackMessageDiv.textContent = '';
-        }
-        
-        const whatsappChatSpan = document.querySelector('#whatsapp-fixed span[data-lang="whatsapp_chat"]');
-        if (whatsappChatSpan) {
-            whatsappChatSpan.textContent = translations[L].whatsapp_chat;
-        }
-        
-        updateCartDisplay();
-    }
+            <button class="btn" id="buyBtn" onclick="openCheckout()">
+                <i class="fas fa-shopping-cart"></i> Comprar Ahora
+            </button>
+        </div>
+    </section>
     
-    /* Yeni Dil Ayarlama Fonksiyonu */
-    function setLang(code){ 
-        localStorage.setItem('site-lang', code); 
-        applyLang(); 
-    }
+    <footer>
+        <p><strong>LuxTekChile</strong> - Tecnología Premium</p>
+        <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">
+            © 2024 LuxTekChile. Todos los derechos reservados.
+        </p>
+    </footer>
     
-    /* FORM İŞLEMİ (E-Ticaret Simülasyonu) */
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const messageDiv = document.getElementById('form-message');
-        const currentLang = localStorage.getItem('site-lang') || 'es'; 
-
-        if (!form.checkValidity()) {
-            messageDiv.style.display = 'block';
-            messageDiv.style.color = 'red';
-            messageDiv.textContent = translations[currentLang].form_error;
-            return;
-        }
+    <script>
+        // =============================================
+        // CONFIGURACIÓN - NO TOCAR
+        // =============================================
         
-        if (cartCount === 0) {
-             messageDiv.style.display = 'block';
-             messageDiv.style.color = 'red';
-             messageDiv.textContent = translations[currentLang].form_error_empty;
-             return; 
-        }
-
-        // Simülasyon: Ödeme başarılı oldu.
-        messageDiv.style.display = 'block';
-        messageDiv.style.color = 'var(--secondary-accent)'; 
-        messageDiv.textContent = translations[currentLang].form_success;
-        
-        // Sipariş detayları (gerçek bir sistemde sunucuya gönderilir)
-        const formData = new FormData(form);
-        const orderData = {};
-        for (let [key, value] of formData.entries()) {
-            orderData[key] = value;
-        }
-        orderData.item = "Luxtekchile M10 TWS Audífonos";
-        orderData.quantity = cartCount;
-        orderData.total_price = formatPrice(cartCount * unitPrice);
-
-        // Konsola sipariş detaylarını yazdır (Simülasyon)
-        console.log('--- NUEVO PEDIDO SIMULADO ---');
-        console.log(JSON.stringify(orderData, null, 2));
-        console.log('-----------------------------');
-
-        
-        form.reset(); // Formu sıfırla
-        cartCount = 0; // Sepeti sıfırla
-        updateCartDisplay();
-        
-        setTimeout(() => {
-            messageDiv.style.display = 'none';
-        }, 5000); // 5 saniye sonra mesajı gizle
-    }
-
-    /* KARGO TAKİP İŞLEMİ (Simülasyon - Tüm Şirketler) */
-    async function handleTrackOrder() {
-        const courier = document.getElementById('courier-select').value;
-        const trackingNumber = document.getElementById('tracking-number').value.trim();
-        const trackingMessage = document.getElementById('tracking-message');
-        const currentLang = localStorage.getItem('site-lang') || 'es'; 
-
-        trackingMessage.style.display = 'block';
-        trackingMessage.style.color = '#777';
-        trackingMessage.textContent = translations[currentLang].tracking_status_processing; 
-
-        if (!courier || !trackingNumber) {
-            trackingMessage.style.color = 'red';
-            trackingMessage.textContent = translations[currentLang].form_error; 
-            return;
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 2000)); // 2 saniye bekleme
-
-        // Simülasyon Verileri (Chilexpress: CHX, Correos: COR, Starken: STR)
-        const mockTrackingData = {
-            "Chilexpress": {
-                "CHX123456789": { status: "delivered", date: "12/12/2025" },
-                "CHX987654321": { status: "shipped", date: "20/12/2025" },
-            },
-            "Correos de Chile": {
-                "COR555888111": { status: "shipped", date: "21/12/2025" },
-                "COR444777222": { status: "processing", date: "24/12/2025" },
-            },
-            "Starken": {
-                "STR111222333": { status: "processing", date: "23/12/2025" },
-                "STR000111000": { status: "delivered", date: "15/12/2025" },
-            }
+        // 🔑 BURAYA SUPABASE BİLGİLERİNİ EKLE
+        const CONFIG = {
+            SUPABASE_URL: 'https://czyjwsbajptqayplsoji.supabase.co',
+            SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWp3c2JhanB0cWF5cGxzb2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYzNTEwMDMsImV4cCI6MjA4MTkyNzAwM30.zMr7lUt5bsYpq8Y-SCJ2viMPsZC5tG64NHCjZvMxrHI',
+            WHATSAPP_NUMBER: '56973394698',
+            PRODUCT_ID: 'M10-TWS',
+            PRODUCT_PRICE: 5990
         };
         
-        const result = mockTrackingData[courier] ? mockTrackingData[courier][trackingNumber.toUpperCase()] : null;
-
-        if (result) {
-            trackingMessage.style.color = 'var(--accent)';
-            
-            let statusTextKey;
-            switch(result.status) {
-                case "delivered": statusTextKey = "tracking_status_delivered"; break;
-                case "shipped": statusTextKey = "tracking_status_shipped"; break;
-                case "processing": statusTextKey = "tracking_status_processing"; break;
-                default: statusTextKey = "tracking_status_processing";
-            }
-            
-            const statusLocalized = translations[currentLang][statusTextKey];
-            
-            if (result.status === "delivered") {
-                 trackingMessage.textContent = statusLocalized; 
-            } else {
-                 const successMessage = translations[currentLang].tracking_status_success;
-                 trackingMessage.textContent = successMessage.replace('{status}', statusLocalized).replace('{date}', result.date);
-            }
-            
+        let supabase = null;
+        let orderAttempts = 0;
+        let lastOrderTime = 0;
+        
+        // Supabase client başlat
+        if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY) {
+            supabase = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
         } else {
-            trackingMessage.style.color = 'red';
-            trackingMessage.textContent = translations[currentLang].tracking_status_not_found;
+            console.error('❌ Supabase yapılandırması eksik!');
         }
-    }
+        
+        // =============================================
+        // GÜVENLİK VE VALIDASYON
+        // =============================================
+        
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML.trim();
+        }
+        
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regex.test(email);
+        }
+        
+        function validatePhone(phone) {
+            const cleaned = phone.replace(/\s/g, '');
+            const regex = /^\+56[0-9]{9}$/;
+            return regex.test(cleaned);
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            const fields = {
+                nombre: document.getElementById('nombre'),
+                email: document.getElementById('email'),
+                telefono: document.getElementById('telefono'),
+                direccion: document.getElementById('direccion'),
+                comuna: document.getElementById('comuna'),
+                region: document.getElementById('region')
+            };
+            
+            Object.values(fields).forEach(field => {
+                field.closest('.form-group').classList.remove('invalid');
+            });
+            
+            if (!fields.nombre.value.trim() || fields.nombre.value.length < 3) {
+                fields.nombre.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            if (!validateEmail(fields.email.value)) {
+                fields.email.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            if (!validatePhone(fields.telefono.value)) {
+                fields.telefono.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            if (!fields.direccion.value.trim() || fields.direccion.value.length < 10) {
+                fields.direccion.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            if (!fields.comuna.value.trim()) {
+                fields.comuna.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            if (!fields.region.value) {
+                fields.region.closest('.form-group').classList.add('invalid');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        function checkRateLimit() {
+            const now = Date.now();
+            const timeSinceLastOrder = now - lastOrderTime;
+            
+            if (timeSinceLastOrder < 5000) {
+                throw new Error('Por favor espera unos segundos antes de intentar de nuevo.');
+            }
+            
+            if (orderAttempts >= 3) {
+                const resetTime = 600000; // 10 dakika
+                if (timeSinceLastOrder < resetTime) {
+                    throw new Error('Demasiados intentos. Por favor espera 10 minutos.');
+                } else {
+                    orderAttempts = 0;
+                }
+            }
+            
+            orderAttempts++;
+            lastOrderTime = now;
+        }
+        
+        // =============================================
+        // UI FONKSIYONLARI
+        // =============================================
+        
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} active`;
+            setTimeout(() => toast.classList.remove('active'), 5000);
+        }
+        
+        function setLoading(show, text = 'Procesando...') {
+            const loading = document.getElementById('loading');
+            const loadingText = document.getElementById('loadingText');
+            
+            loading.classList.toggle('active', show);
+            loadingText.textContent = text;
+        }
+        
+        function openCheckout() {
+            const buyBtn = document.getElementById('buyBtn');
+            if (buyBtn.disabled) {
+                showToast('Producto agotado', 'error');
+                return;
+            }
+            document.getElementById('checkoutModal').classList.add('active');
+        }
+        
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.getElementById('checkoutForm').reset();
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('invalid');
+            });
+        }
+        
+        // =============================================
+        // STOK YÖNETİMİ
+        // =============================================
+        
+        async function updateStock() {
+            if (!supabase) return;
+            
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('stock')
+                    .eq('id', CONFIG.PRODUCT_ID)
+                    .single();
+                
+                if (error) throw error;
+                
+                const stockText = document.getElementById('stockText');
+                const buyBtn = document.getElementById('buyBtn');
+                
+                if (!data || data.stock === 0) {
+                    stockText.textContent = '❌ Agotado';
+                    buyBtn.disabled = true;
+                    buyBtn.style.opacity = '0.5';
+                    buyBtn.style.cursor = 'not-allowed';
+                } else {
+                    stockText.textContent = `¡Solo quedan ${data.stock} unidades!`;
+                    buyBtn.disabled = false;
+                    buyBtn.style.opacity = '1';
+                    buyBtn.style.cursor = 'pointer';
+                }
+            } catch (error) {
+                console.error('Error al cargar stock:', error);
+                document.getElementById('stockText').textContent = 'Error al cargar stock';
+            }
+        }
+        
+        // =============================================
+        // SİPARİŞ OLUŞTURMA (GÜVENLİ - BACKEND ÜZERİNDEN)
+        // =============================================
+        
+        document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                showToast('Por favor completa todos los campos correctamente', 'error');
+                return;
+            }
+            
+            if (!supabase) {
+                showToast('Error de configuración del sistema', 'error');
+                return;
+            }
+            
+            try {
+                checkRateLimit();
+            } catch (error) {
+                showToast(error.message, 'error');
+                return;
+            }
+            
+            const formData = {
+                nombre: sanitizeInput(document.getElementById('nombre').value),
+                email: sanitizeInput(document.getElementById('email').value),
+                telefono: sanitizeInput(document.getElementById('telefono').value),
+                direccion: sanitizeInput(document.getElementById('direccion').value),
+                comuna: sanitizeInput(document.getElementById('comuna').value),
+                region: document.getElementById('region').value
+            };
+            
+            try {
+                setLoading(true, 'Verificando disponibilidad...');
+                
+                // Backend Edge Function'ı çağır
+                const { data: result, error } = await supabase.functions.invoke('create-order', {
+                    body: {
+                        customer: formData,
+                        product_id: CONFIG.PRODUCT_ID,
+                        product_name: 'Auriculares M10 TWS',
+                        price: CONFIG.PRODUCT_PRICE
+                    }
+                });
+                
+                if (error) throw error;
+                
+                if (!result || !result.success) {
+                    throw new Error(result?.error || 'Error al crear el pedido');
+                }
+                
+                setLoading(true, 'Generando enlace de pago...');
+                
+                // WhatsApp bildirimi gönder
+                const orderId = result.order_id;
+                const whatsappMsg = `🛒 *NUEVO PEDIDO #${orderId}*
 
+📦 *Producto:* Auriculares M10 TWS
+💰 *Total:* $${CONFIG.PRODUCT_PRICE.toLocaleString('es-CL')}
 
-    /* DOM Yüklendiğinde Dinleyicileri Kurma ve Dili Uygulama */
-    document.addEventListener('DOMContentLoaded', ()=>{
-        // Navigasyon bağlantılarına tıklama dinleyicileri ekle
-        document.querySelectorAll('#deskNav a, .panel a, .desktop-icon-link').forEach(a=>{
-             a.addEventListener('click', (e) => {
-                 const href = a.getAttribute('href');
-                 if(href && (href.startsWith('#') || href.startsWith('/'))){ 
-                     e.preventDefault();
-                     const target = href.startsWith('#') ? href.substring(1) : href;
-                     go(target); 
-                 }
-             }); 
+👤 *Cliente:*
+• Nombre: ${formData.nombre}
+• Email: ${formData.email}
+• Teléfono: ${formData.telefono}
+
+📍 *Envío:*
+${formData.direccion}
+${formData.comuna}, ${formData.region}
+
+🔗 *Enlace de pago Flow:*
+${result.payment_url}
+
+⚡ Pedido creado automáticamente en el sistema.`;
+                
+                // WhatsApp'ı yeni sekmede aç
+                window.open(
+                    `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`, 
+                    '_blank'
+                );
+                
+                setLoading(false);
+                closeCheckout();
+                
+                showToast('✅ ¡Pedido registrado! Redirigiendo a Flow...', 'success');
+                
+                // Flow ödeme sayfasına yönlendir
+                setTimeout(() => {
+                    window.location.href = result.payment_url;
+                }, 2000);
+                
+                // Stoku güncelle
+                updateStock();
+                
+            } catch (error) {
+                setLoading(false);
+                console.error('Error:', error);
+                showToast('❌ Error: ' + error.message, 'error');
+            }
         });
         
-        // Dil değiştirme düğmelerine tıklama dinleyicilerini ekle
-        document.querySelectorAll('[data-lang-code]').forEach(b=>{
-            b.addEventListener('click', ()=> setLang(b.getAttribute('data-lang-code')));
+        // =============================================
+        // SAYFA YÜKLENDİĞİNDE
+        // =============================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 LuxTekChile inicializado');
+            updateStock();
+            
+            // Her 30 saniyede bir stoku güncelle
+            setInterval(updateStock, 30000);
         });
-
-        // Form gönderim dinleyicisini ekle
-        const quoteForm = document.getElementById('quote-form');
-        if (quoteForm) {
-            quoteForm.addEventListener('submit', handleFormSubmit);
+        
+        // Modal dışına tıklanınca kapat
+        document.getElementById('checkoutModal').addEventListener('click', (e) => {
+            if (e.target.id === 'checkoutModal') {
+                closeCheckout();
+            }
+        });
+        
+        // ESC tuşu ile modal kapat
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCheckout();
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - LuxTekChile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0066FF;
+            --success: #00C853;
+            --danger: #FF3D00;
+            --warning: #FFB300;
+            --white: #ffffff;
+            --dark: #1a1a2e;
         }
         
-        // Kargo Takip Butonu dinleyicisini ekle
-        const trackButton = document.getElementById('track-button');
-        if (trackButton) {
-            trackButton.addEventListener('click', handleTrackOrder);
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            color: var(--dark);
         }
         
-        // Başlangıç dilini uygula
-        applyLang();
-    });
-</script>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .login-box {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 450px;
+        }
+        
+        .login-box h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0052cc;
+        }
+        
+        .btn:disable.btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .error-msg {
+            background: rgba(255, 61, 0, 0.1);
+            color: var(--danger);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .error-msg.active {
+            display: block;
+        }
+        
+        .dashboard {
+            display: none;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .dashboard.active { display: block; }
+        
+        .top-bar {
+            background: white;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .top-bar h1 {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        
+        .btn-logout {
+            padding: 12px 24px;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            background: #d32f2f;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .stat-card .value {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        
+        .stat-card .icon {
+            font-size: 24px;
+            opacity: 0.2;
+            float: right;
+        }
+        
+        .orders-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .orders-header h2 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px;
+        }
+        
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+        }
+        
+        td {
+            font-size: 14px;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .status-pending {
+            background: rgba(255, 179, 0, 0.15);
+            color: #f57c00;
+        }
+        
+        .status-completed {
+            background: rgba(0, 200, 83, 0.15);
+            color: #00C853;
+        }
+        
+        .status-failed {
+            background: rgba(255, 61, 0, 0.15);
+            color: var(--danger);
+        }
+        
+        .order-details {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .order-details strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .btn-view {
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-view:hover {
+            background: #0052cc;
+            transform: scale(1.05);
+        }
+        
+        .btn-update {
+            padding: 6px 12px;
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        
+        .btn-update:hover {
+            background: #00a143;
+        }
+        
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+        
+        .modal.active { display: flex; }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-content h2 {
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+        
+        .detail-row {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 700;
+            width: 180px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .detail-value {
+            flex: 1;
+            color: var(--dark);
+            font-size: 14px;
+        }
+        
+        .detail-value a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .detail-value a:hover {
+            text-decoration: underline;
+        }
+        
+        .section-divider {
+            margin: 30px 0 20px 0;
+            padding-top: 25px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .section-divider h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        
+        .empty-state p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 60px;
+            color: #999;
+        }
+        
+        .loading-spinner i {
+            font-size: 48px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .detail-label {
+                width: 100%;
+            }
+            
+            .filter-buttons {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+            <h1>🔒 Admin Panel</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="admin@luxtekchile.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+            </form>
+            <div class="error-msg" id="loginError"></div>
+        </div>
+    </div>
+    
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <h2>📦 Detalle del Pedido</h2>
+            <div id="orderDetails"></div>
+            <button class="btn" onclick="closeModal()" style="margin-top: 30px;">
+                <i class="fas fa-times"></i> Cerrar
+            </button>
+        </div>
+    </div>
+    
+    <div class="dashboard" id="dashboard">
+        <div class="top-bar">
+            <h1>📊 Panel de Control</h1>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            </button>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-shopping-cart icon"></i>
+                <h3><i class="fas fa-shopping-cart"></i> Total Pedidos</h3>
+                <div class="value" id="totalOrders">0</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock icon"></i>
+                <h3><i class="fas fa-clock"></i> Pendientes</h3>
+                <div class="value" style="color: var(--warning);" id="pendingOrders">0</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-dollar-sign icon"></i>
+                <h3><i class="fas fa-dollar-sign"></i> Ingresos</h3>
+                <div class="value" style="color: var(--success);" id="revenue">$0</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-box icon"></i>
+                <h3><i class="fas fa-box"></i> Stock Actual</h3>
+                <div class="value" id="stock">0</div>
+            </div>
+        </div>
+        
+        <div class="orders-section">
+            <div class="orders-header">
+                <h2><i class="fas fa-list"></i> Pedidos</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterOrders('all')">
+                        Todos
+                    </button>
+                    <button class="filter-btn" onclick="filterOrders('pending')">
+                        Pendientes
+                    </button>
+                    <button class="filter-btn" onclick="filterOrders('completed')">
+                        Completados
+                    </button>
+                </div>
+            </div>
+            <div class="table-container" id="ordersContent">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner"></i>
+                    <p>Cargando pedidos...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // =============================================
+        // CONFIGURACIÓN
+        // =============================================
+        
+        const CONFIG = {
+            SUPABASE_URL: 'https://czyjwsbajptqayplsoji.supabase.co',
+            SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6eWp3c2JhanB0cWF5cGxzb2ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYzNTEwMDMsImV4cCI6MjA4MTkyNzAwM30.zMr7lUt5bsYpq8Y-SCJ2viMPsZC5tG64NHCjZvMxrHI',
+            PRODUCT_ID: 'M10-TWS'
+        };
+        
+        let supabase = null;
+        let currentUser = null;
+        let allOrders = [];
+        let currentFilter = 'all';
+        
+        // Supabase client başlat
+        if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY) {
+            supabase = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
+        }
+        
+        // =============================================
+        // LOGIN İŞLEMLERİ
+        // =============================================
+        
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!supabase) {
+                showError('Error de configuración del sistema');
+                return;
+            }
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const errorDiv = document.getElementById('loginError');
+            
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Iniciando...';
+            errorDiv.classList.remove('active');
+            
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+                
+                if (error) throw error;
+                
+                currentUser = data.user;
+                showDashboard();
+                loadData();
+                
+            } catch (error) {
+                errorDiv.textContent = '❌ ' + error.message;
+                errorDiv.classList.add('active');
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Iniciar Sesión';
+            }
+        });
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.textContent = '❌ ' + message;
+            errorDiv.classList.add('active');
+        }
+        
+        function logout() {
+            if (supabase) supabase.auth.signOut();
+            currentUser = null;
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('loginForm').reset();
+        }
+        
+        function showDashboard() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+        }
+        
+        // =============================================
+        // VERİ YÜKLEME
+        // =============================================
+        
+        async function loadData() {
+            if (!supabase) return;
+            
+            try {
+                // Siparişleri yükle
+                const { data: orders, error: ordersError } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+                
+                if (ordersError) throw ordersError;
+                
+                allOrders = orders || [];
+                
+                // Stok bilgisini yükle
+                const { data: product, error: productError } = await supabase
+                    .from('products')
+                    .select('stock')
+                    .eq('id', CONFIG.PRODUCT_ID)
+                    .single();
+                
+                if (productError) throw productError;
+                
+                // İstatistikleri güncelle
+                updateStats(allOrders, product);
+                
+                // Tabloyu güncelle
+                renderOrders(allOrders);
+                
+            } catch (error) {
+                console.error('Error al cargar datos:', error);
+                document.getElementById('ordersContent').innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Error al cargar datos: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function updateStats(orders, product) {
+            document.getElementById('totalOrders').textContent = orders.length;
+            
+            const pendingCount = orders.filter(o => o.status === 'pending').length;
+            document.getElementById('pendingOrders').textContent = pendingCount;
+            
+            const completedOrders = orders.filter(o => o.status === 'completed');
+            const revenue = completedOrders.reduce((sum, o) => sum + (o.total || 0), 0);
+            document.getElementById('revenue').textContent = '$' + revenue.toLocaleString('es-CL');
+            
+            document.getElementById('stock').textContent = product?.stock || 0;
+        }
+        
+        // =============================================
+        // SİPARİŞ TABLOSU
+        // =============================================
+        
+        function filterOrders(filter) {
+            currentFilter = filter;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            let filteredOrders = allOrders;
+            
+            if (filter === 'pending') {
+                filteredOrders = allOrders.filter(o => o.status === 'pending');
+            } else if (filter === 'completed') {
+                filteredOrders = allOrders.filter(o => o.status === 'completed');
+            }
+            
+            renderOrders(filteredOrders);
+        }
+        
+        function renderOrders(orders) {
+            const container = document.getElementById('ordersContent');
+            
+            if (!orders || orders.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No hay pedidos en esta categoría</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Producto</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${orders.map(o => `
+                            <tr>
+                                <td><strong>#${o.id}</strong></td>
+                                <td>
+                                    ${o.customer_name ? `
+                                        <div class="order-details">
+                                            <strong>${o.customer_name}</strong>
+                                            ${o.customer_email ? `<span>${o.customer_email}</span><br>` : ''}
+                                            ${o.customer_phone ? `<span>${o.customer_phone}</span>` : ''}
+                                        </div>
+                                    ` : '<span style="color: #999;">Sin datos</span>'}
+                                </td>
+                                <td>${o.product_name || 'Producto'}</td>
+                                <td><strong>$${(o.total || 0).toLocaleString('es-CL')}</strong></td>
+                                <td>
+                                    <span class="status-badge status-${o.status}">${o.status}</span>
+                                </td>
+                                <td>${formatDate(o.created_at)}</td>
+                                <td>
+                                    <button class="btn-view" onclick="viewOrder(${o.id})">
+                                        <i class="fas fa-eye"></i> Ver
+                                    </button>
+                                    ${o.status === 'pending' ? `
+                                        <button class="btn-update" onclick="updateOrderStatus(${o.id}, 'completed')">
+                                            <i class="fas fa-check"></i> Completar
+                                        </button>
+                                    ` : ''}
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+            
+            container.innerHTML = html;
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('es-CL', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        // =============================================
+        // SİPARİŞ DETAYI
+        // =============================================
+        
+        async function viewOrder(orderId) {
+            if (!supabase) return;
+            
+            try {
+                const { data, error } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .eq('id', orderId)
+                    .single();
+                
+                if (error) throw error;
+                
+                const html = `
+                    <div class="detail-row">
+                        <div class="detail-label">ID Pedido:</div>
+                        <div class="detail-value"><strong>#${data.id}</strong></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Producto:</div>
+                        <div class="detail-value">${data.product_name}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Total:</div>
+                        <div class="detail-value"><strong style="font-size: 20px; color: var(--success);">$${data.total.toLocaleString('es-CL')}</strong></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Estado:</div>
+                        <div class="detail-value">
+                            <span class="status-badge status-${data.status}">${data.status}</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Fecha:</div>
+                        <div class="detail-value">${formatDate(data.created_at)}</div>
+                    </div>
+                    ${data.payment_url ? `
+                    <div class="detail-row">
+                        <div class="detail-label">Enlace de Pago:</div>
+                        <div class="detail-value">
+                            <a href="${data.payment_url}" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Ver en Flow
+                            </a>
+                        </div>
+                    </div>
+                    ` : ''}
+                    ${data.customer_name ? `
+                    <div class="section-divider">
+                        <h3>👤 Información del Cliente</h3>
+                        <div class="detail-row">
+                            <div class="detail-label">Nombre:</div>
+                            <div class="detail-value"><strong>${data.customer_name}</strong></div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Email:</div>
+                            <div class="detail-value">
+                                <a href="mailto:${data.customer_email}">
+                                    <i class="fas fa-envelope"></i> ${data.customer_email}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Teléfono:</div>
+                            <div class="detail-value">
+                                <a href="https://wa.me/${data.customer_phone.replace(/\D/g,'')}" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> ${data.customer_phone}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    ` : ''}
+                    ${data.shipping_address ? `
+                    <div class="section-divider">
+                        <h3>📍 Dirección de Envío</h3>
+                        <div class="detail-row">
+                            <div class="detail-label">Dirección:</div>
+                            <div class="detail-value">${data.shipping_address}</div>
+                        </div>
+                    </div>
+                    ` : ''}
+                `;
+                
+                document.getElementById('orderDetails').innerHTML = html;
+                document.getElementById('orderModal').classList.add('active');
+                
+            } catch (error) {
+                alert('Error al cargar el pedido: ' + error.message);
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+        
+        // =============================================
+        // SİPARİŞ DURUMU GÜNCELLEME
+        // =============================================
+        
+        async function updateOrderStatus(orderId, newStatus) {
+            if (!confirm('¿Estás seguro de cambiar el estado del pedido?')) {
+                return;
+            }
+            
+            try {
+                const { error } = await supabase
+                    .from('orders')
+                    .update({ status: newStatus })
+                    .eq('id', orderId);
+                
+                if (error) throw error;
+                
+                alert('✅ Estado actualizado correctamente');
+                loadData();
+                
+            } catch (error) {
+                alert('❌ Error al actualizar: ' + error.message);
+            }
+        }
+        
+        // =============================================
+        // SAYFA YÜKLENDİĞİNDE
+        // =============================================
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!supabase) {
+                showError('Error de configuración del sistema');
+                return;
+            }
+            
+            // Oturum kontrolü
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                currentUser = session.user;
+                showDashboard();
+                loadData();
+            }
+        });
+        
+        // Modal dışına tıklanınca kapat
+        document.getElementById('orderModal').addEventListener('click', (e) => {
+            if (e.target.id === 'orderModal') {
+                closeModal();
+            }
+        });
+        
+        // ESC tuşu ile modal kapat
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Otomatik yenileme (her 30 saniyede bir)
+        setInterval(() => {
+            if (document.getElementById('dashboard').classList.contains('active')) {
+                loadData();
+            }
+        }, 30000);
+    </script>
 </body>
 </html>
